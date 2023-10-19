@@ -1,12 +1,13 @@
 import "./App.css";
+import Footer from "./components/Footer";
 
 import NavBar from "./components/NavBar";
 function App() {
   return (
     <>
      <NavBar/>
-      <div>Main Content</div>
-      <div className="footer">Footer</div>
+      <div className="h-screen">Main Content</div>
+      <Footer/>
     </>
   );
 }
