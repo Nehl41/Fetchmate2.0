@@ -1,16 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
 
+import NavBar from "./components/NavBar";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>Nehal's React App On Vite</div>
+     <NavBar/>
+      <div>Main Content</div>
+      <div className="footer">Footer</div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
