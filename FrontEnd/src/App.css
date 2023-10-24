@@ -27,6 +27,26 @@
   box-shadow: -1px 0px 26px 10px rgba(0,0,0,0.75);
 }
 
+.left-caros,.right-caros{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+ 
+}
+.left-caros:active,.right-caros:active{
+animation: carouselButton 0.1s ease-in-out;
+}
+
+
+@keyframes carouselButton{
+  from {
+    background-color:white;
+  }
+  to{
+    background-color:black;
+  }
+}
+
 
 
 
