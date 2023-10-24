@@ -15,11 +15,11 @@ const Home4 = () => {
         </div>
         <LandingSlider />
       </div>
-      <div className="flex items-center justify-center gap-10">
+      <div className="flex pt-10 items-center justify-center gap-10">
         <div className="button-wrapper row-span-2">
           <button
             type="button"
-            className="bg-yellow-400 hover:bg-yellow-500 font-medium rounded-lg text-xl px-4 py-2 "
+            className="bg-[#FF9F1C] hover:bg-yellow-500 font-medium text-xl px-4 py-2 "
           >
             Shop Now
           </button>
@@ -27,7 +27,7 @@ const Home4 = () => {
         <div className="button-wrapper">
           <button
             type="button"
-            className=" hover:bg-yellow-300 text-yellow-400  border-2 border-yellow-400 rounded-xl font-medium  text-xl px-4 py-2 "
+            className=" hover:bg-yellow-300 text-yellow-400  border-2 border-yellow-400 rounded-lg font-medium  text-xl px-4 py-2 "
           >
             View Cart
           </button>
