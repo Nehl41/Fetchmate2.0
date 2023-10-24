@@ -1,3 +1,32 @@
-html,body{
-  height: 100vh;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+.capsule-image-wrapper{
+  border-radius :50%/20%;
+  background-image:linear-gradient(360deg, rgba(45,253,202,0.8576680672268908) 0%, rgba(253,187,45,0.5411414565826331) 49%);
+  animation: morphing 10s infinite;
+}
+
+.image-shadow{
+  box-shadow: 7px 10px 35px -18px rgba(0,0,0,0.75);
+}
+
+.circle-path{
+  clip-path:circle(50% at 50% 50%);
+}
+@media (min-width: 640px) { 
+  .side-capsule{
+    border-radius: 0;
+    border-top-right-radius: 40000000px;
+    border-bottom-right-radius: 400000000px;
+  }
+}
+.side-capsule-shadow{
+  box-shadow: -1px 0px 26px 10px rgba(0,0,0,0.75);
+}
+
+
+
+
