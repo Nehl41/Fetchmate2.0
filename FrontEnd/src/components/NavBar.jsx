@@ -1,6 +1,7 @@
 import React from 'react'
 import OrangeLogo from "../assets/FETCHMATE LOGO/OrangeLogo.png";
 import {AiOutlineSearch} from 'react-icons/ai'
+import {Link,NavLink} from 'react-router-dom'
 
 const NavBar = () => {
   return (
@@ -8,11 +9,11 @@ const NavBar = () => {
     <div className="nav-left sm:flex items-center w-6/12 justify-between">
       <img src={OrangeLogo} alt="FetchMate Logo" className="h-16 w-16" />
       <ul className="flex pt-2 basis-4/5 justify-evenly content-center text-xl">
-        <li>Home</li>
-        <li>Pet Sitter</li>
-        <li>Services</li>
-        <li>Product</li>
-        <li>Community</li>
+        <li><NavLink to={"/"} className={({isActive})=>`${isActive?"text-yellow-400":"text-black"}`}>Home</NavLink></li>
+        <li><NavLink to={"/pet-sitter"} className={({isActive})=>`${isActive?"text-yellow-400":"text-black"}`}>Pet Sitter</NavLink></li>
+        <li><NavLink to={"/services"} className={({isActive})=>`${isActive?"text-yellow-400":"text-black"}`}>Services</NavLink></li>
+        {/* <li><NavLink className={({isActive})=>`${isActive?"text-yellow-400":""}`}>Product</NavLink></li>
+        <li><NavLink className={({isActive})=>`${isActive?"text-yellow-400":""}`}>Community</NavLink></li> */}
       </ul>
     </div>
     <div className="nav-right  w-6/12 flex justify-end">
