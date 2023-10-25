@@ -65,6 +65,62 @@ animation: carouselButton 0.1s ease-in-out;
   background-image: url('./assets/trackBullets.png') no-repeat left top;
 }
 
+.triangle {
+	position: relative;
+	background-color: orange;
+	text-align: left;
+  left:290px;
+  bottom:130px;
+  z-index: 0;
+}
+.triangle:before,
+.triangle:after {
+	content: '';
+	position: absolute;
+	background-color: inherit;
+}
+.triangle,
+.triangle:before,
+.triangle:after {
+	height: 7em;
+  width: 7em;
+  border-top-right-radius: 30%;
+}
+
+.triangle {
+	transform: rotate(-60deg) skewX(-30deg) scale(1,.866);
+}
+.triangle:before {
+	transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+}
+.triangle:after {
+	transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+}
+
+.triangle2{
+  transform: rotate(90deg);
+  left:30px;
+  right:100px;
+  bottom:318px;
+}
+
+.try-something::before{
+content: "";
+height: 97%;
+width: 100%;
+top:4px;
+border-top-right-radius: 145px;
+border-top-left-radius: 145px;
+transform: scale(1.23);
+background-color: white;
+position: absolute;
+z-index: -1;
+
+
+}
+
+
+
 
 
 

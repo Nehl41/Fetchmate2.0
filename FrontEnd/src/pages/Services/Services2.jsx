@@ -10,7 +10,7 @@ const Services2 = () => {
       <div><img src={TrackerAD} alt="" /></div>
       <div className='pt-20 text-2xl flex flex-col gap-16'>
         <div className='pl-10 font-bold'>Using Fetchmate Pet Tracking Belt</div>
-        <ul className='flex flex-col gap-10'>
+        <ul className='flex flex-col gap-6'>
           <li ><div className='inline mr-6'><img className='inline' src={TrackerBullets} alt="" /></div>Charge tracking bel until indicator displays complete charge</li>
           <li ><div className='inline mr-6'><img className='inline' src={TrackerBullets} alt="" /></div>Secure bel snugly on the pet for comfort</li>
           <li ><div className='inline mr-6'><img className='inline' src={TrackerBullets} alt="" /></div>Connect belt using ID and pair with device</li>
