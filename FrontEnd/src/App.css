@@ -61,6 +61,10 @@ animation: carouselButton 0.1s ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.tracker-bullets{
+  background-image: url('./assets/trackBullets.png') no-repeat left top;
+}
+
 
 
 

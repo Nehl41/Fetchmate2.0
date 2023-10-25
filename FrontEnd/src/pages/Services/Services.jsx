@@ -14,7 +14,7 @@ const Services = () => {
   const description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt neque officiis fugit adipisci quos nulla!"
   return (
     <div className=''>
-      <div className='mb-16'>
+      <div className='mb-20'>
         <div className='text-center text-yellow-400 font-medium text-2xl pt-10 pb-12'>Fetchmate Provided Services</div>
         <div className='flex flex-col items-center gap-y-14 w-full'>
           <div className='flex gap-x-16'>
