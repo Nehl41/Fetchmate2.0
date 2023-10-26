@@ -8,14 +8,15 @@ import ServiceThumb3 from '../../assets/servicesThumb3.png'
 import ServiceThumb4 from '../../assets/servicesThumb4.png'
 import ServiceThumb5 from '../../assets/servicesThumb5.png'
 import ServiceThumb6 from '../../assets/servicesThumb6.png'
+
 import Services2 from './Services2'
 
 const Services = () => {
   const description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt neque officiis fugit adipisci quos nulla!"
   return (
     <div className=''>
-      <div className='mb-20'>
-        <div className='text-center text-yellow-400 font-medium text-2xl pt-10 pb-12'>Fetchmate Provided Services</div>
+      <div className='mb-20 services-gradient'>
+        <div className='text-center text-[#FF9F1C] font-bold text-2xl pt-10 pb-12'>Fetchmate Provided Services</div>
         <div className='flex flex-col items-center gap-y-14 w-full'>
           <div className='flex gap-x-16'>
           <ServicesCard name={"Pet Day Care"} image={ServiceThumb1} description={description}/>

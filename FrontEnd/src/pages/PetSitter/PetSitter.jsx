@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PetSitter1 from "../../assets/petSitter1.png";
 import Jhamela from "../../assets/jhamela.png";
 
+
+
 const PetSitter = () => {
+  
+  // const [isLoading,setIsLoading]=useState(false)
+  // useEffect(()=>{
+  //   setIsLoading(true)
+  //   setTimeout(()=>{
+  //     setIsLoading(false)
+  //   },500)
+  // },[])
+
+  //  if(isLoading) return <div>Loading Your DFatatatataat</div>
+
   return (
-    <div className="pt-20 sm:px-40 ">
+    <div className="pt-20 sm:px-40 " initial={{opacity:"0"}}>
       <div className="flex justify-between ">
         <div className="realtive h-72">
           <img className="z-10 relative" src={PetSitter1} alt="" />
