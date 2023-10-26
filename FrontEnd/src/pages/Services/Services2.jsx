@@ -16,9 +16,9 @@ const Services2 = () => {
           <li ><div className='inline mr-6'><img className='inline' src={TrackerBullets} alt="" /></div>Connect belt using ID and pair with device</li>
           <li ><div className='inline mr-6'><img className='inline' src={TrackerBullets} alt="" /></div>Activate Real time tracking via the app for pet monitoring</li>
         </ul>
-        <div className='flex justify-around'>
+        <div className='flex gap-24'>
           <div><button className='bg-[#2EC4B6] px-6 py-2 rounded-lg font-medium'>Start Tracking</button></div>
-          <div><button className='border-4 border-[#2EC4B6] text-[#2EC4B6] px-6 py-2 rounded-lg font-medium'>Order Tracker</button></div>
+          <div><button className='border-2 border-[#2EC4B6] text-[#2EC4B6] px-6 py-2 rounded-lg font-medium'>Order Tracker</button></div>
         </div>
       </div>
     </div>
