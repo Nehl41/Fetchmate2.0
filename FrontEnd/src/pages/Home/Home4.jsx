@@ -19,7 +19,7 @@ const Home4 = () => {
         <div className="button-wrapper row-span-2">
           <button
             type="button"
-            className="bg-[#FF9F1C] hover:bg-yellow-500 font-medium text-xl px-4 py-2 "
+            className="bg-[#FF9F1C] hover:bg-yellow-500 rounded-lg font-medium text-xl px-4 py-2 "
           >
             Shop Now
           </button>
