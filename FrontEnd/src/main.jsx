@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 
+import UploadBlog from './pages/UploadBlog.jsx'
+
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import './index.css'
@@ -24,6 +26,10 @@ const router=createBrowserRouter([
       {path:"/shop",element:<Shop/>},
       {path:"/community",element:<Community/>}
     ]
+  },
+  {
+    path:"/upload",
+    element:<UploadBlog/>
   }
 ])
 

@@ -31,7 +31,7 @@
   }
 }
 .side-capsule-shadow {
-  box-shadow: 1px 0px 20px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 9px 10px 27px -14px rgba(0,0,0,0.38);
 }
 
 .left-caros,
@@ -55,7 +55,7 @@
 }
 
 .carousel-container > *:nth-child(n) {
-  border-right: 2px solid gray;
+  border-right: 0.1em solid #BFBABA;
 }
 
 .box-shadow-3d {
