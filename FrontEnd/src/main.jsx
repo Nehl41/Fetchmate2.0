@@ -13,25 +13,29 @@ import Services from './pages/Services/Services.jsx'
 import Community from './pages/Community/Community.jsx'
 import Error404 from './pages/Error404/Error404.jsx'
 import Shop from './pages/Shop/Shop.jsx'
+import Login from './components/Login.jsx'
+import SignUp from './components/SignUp.jsx'
 
-const router=createBrowserRouter([
+const router = createBrowserRouter([
   {
-    path:"/",
-    element:<App/>,
-    errorElement:<Error404/>,
-    children:[
-      {path:"",element:<Home/>},
-      {path:"/pet-sitter",element:<PetSitter/>},
-      {path:"/services",element:<Services/>},
-      {path:"/shop",element:<Shop/>},
-      {path:"/community",element:<Community/>}
-    ]
+    path: "/",
+    element: <App />,
+    errorElement: <Error404 />,
+    children: [
+      { path: "", element: <Home /> },
+      { path: "/pet-sitter", element: <PetSitter /> },
+      { path: "/services", element: <Services /> },
+      { path: "/shop", element: <Shop /> },
+      { path: "/community", element: <Community /> },
+    ],
   },
+  { path: "/login", element: <Login /> },
+  { path: "/signup", element: <SignUp /> },
   {
-    path:"/upload",
-    element:<UploadBlog/>
-  }
-])
+    path: "/upload",
+    element: <UploadBlog />,
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
