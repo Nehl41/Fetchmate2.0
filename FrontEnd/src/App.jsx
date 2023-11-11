@@ -1,6 +1,6 @@
 import "./App.css";
 import Footer from "./components/Footer";
-import Home from './pages/Home/Home'
+import Home from './pages/Home/Home';
 
 import NavBar from "./components/NavBar";
 

@@ -1,6 +1,6 @@
 import React, { useRef, useState,useForm } from "react";
 
-import axios from "axios";
+// import axios from "axios";
 
 const UploadBlog = () => {
   const [productImg, setProductImg] = useState("");
