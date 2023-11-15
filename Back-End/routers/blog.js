@@ -1,5 +1,5 @@
 const router=require('express').Router()
-const {addBlog}=require('../controllers/blog')
+const {addBlog, addProduct}=require('../controllers/blog')
 
 const cloudinary = require("cloudinary").v2;
 const multer=require('multer')
@@ -15,13 +15,15 @@ cloudinary.config({
   const storage=new CloudinaryStorage({
     cloudinary,
     params:{
-      folder:'myFolder'
+      folder:'products'
     }
   })
   
   const upload=multer({storage})
 
 router.post('/',upload.single('image'),addBlog);
+
+router.post('/add-product',upload.single('image'),addProduct)
 
 
 module.exports=router

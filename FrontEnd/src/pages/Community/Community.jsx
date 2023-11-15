@@ -1,18 +1,20 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import Nehu from "../../assets/nehu.png";
 import BlogCard from "../../components/BlogCard";
 import PetSitterCard from "../../components/PetSitterCard";
+import UploadBlogModal from "../../components/community/UploadBlogModal";
 
 const Community = () => {
-  const contentRef = useRef();
+
+  const [blogAddModal,setBlogAddModal]=useState(false)
 
   const submitBlog = () => {
     const content = contentRef.current.value;
     console.log(content);
   };
   return (
-    <div className="grid grid-cols-4 gap-2  w-screen h-screen">
+    <div className="grid grid-cols-4 gap-2 mt-10  w-screen h-screen">
       <div   
         className="col-span-1 px-6 py-6 flex flex-col items-center community-component-shadow"
       >
@@ -48,15 +50,20 @@ const Community = () => {
       <div className="col-span-2 flex flex-col">
         <div
           style={{ height: "10%" }}
-          className="thumb flex items-center justify-around"
+          className="thumb flex items-center justify-center gap-4"
         >
           <img className="rounded-full w-16" src={Nehu} alt="" />
           <input
-            ref={contentRef}
-            style={{ borderRadius: "4%/50%" }}
+            
+            style={{ borderRadius: "4%/50%",cursor:"pointer" }}
             className="w-3/4 h-10 px-4 rounded-lg border-2"
             placeholder="Let The Thought Out!"
+            onClick={()=>{
+              console.log("Input Clicked")
+              setBlogAddModal(true)
+            }}
           />
+          <UploadBlogModal isModalOpen={blogAddModal} setIsModalOpen={setBlogAddModal}/>
         </div>
         <div className="mt-6 mx-4">
           <BlogCard />
@@ -66,6 +73,7 @@ const Community = () => {
         <div className="text-center text-xl font-bold">Pet Sitters Of The Week</div>
           <div>
             <PetSitterCard/>
+            <UploadBlogModal/>
           </div>
       </div>
     </div>

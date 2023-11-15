@@ -17,6 +17,17 @@ module.exports = async (error, req, res, next) => {
     );
     return res.json(response);
   }
+  
+  else if (error.name=="ValidationError"){
+    const feilds=Object.keys(error.errors)
+    const validationErrors=[]
+    feilds.forEach((value)=>{
+      validationErrors.push(`${error.errors[value].message}`);
+    })
+    return res.json(new CustomResponse(false,null,validationErrors,"Validation Error Occured!"))
+
+  //  console.log(JSON.stringify(error.errors.mobile.message));
+  }
   console.log(error);
   res.status(500).json(new CustomResponse(false, null, error.message));
 

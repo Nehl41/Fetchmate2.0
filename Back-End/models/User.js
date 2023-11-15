@@ -56,6 +56,10 @@ country:{
       required: true,
     },
   ],
+  likedPosts:[{
+    type:Schema.Types.ObjectId,
+    ref:"Blog"
+  }]
 });
 
 module.exports = model("User", userSchema);

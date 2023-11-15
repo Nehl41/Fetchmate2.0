@@ -1,7 +1,7 @@
 import React from "react";
 import OrangeLogo from "../assets/FETCHMATE LOGO/OrangeLogo.png";
 import { AiOutlineSearch } from "react-icons/ai";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -72,14 +72,17 @@ const NavBar = () => {
               placeholder="Search"
             />
           </div>
-         
+         <Link to="/login">
           <button
+          title="Login"
           style={{marginRight:"4.5%"}}
             type="button"
             className="focus:outline-none bg-yellow-400 hover:bg-yellow-500 font-medium rounded-lg text px-4 py-2 dark:focus:ring-yellow-900"
           >
             Login
           </button>
+          </Link>
+          <Link to="/signup">
           <button
           style={{padding:"1.65% 2.5%"}}
             type="button"
@@ -87,6 +90,7 @@ const NavBar = () => {
           >
             Get Started
           </button>
+          </Link>
           
         </div>
       </div>
