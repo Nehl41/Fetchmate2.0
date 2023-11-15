@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Nehu from "../assets/nehu.png";
-import { AiOutlineLike, AiFillLike } from "react-icons/ai";
+import { AiOutlineLike, AiFillLike,AiOutlineShareAlt } from "react-icons/ai";
 
 const BlogCard = () => {
   const [likeState, setLikeState] = useState(false);
+  const [shareState,setShareState]=useState(0)
   return (
     <div className="community-component-shadow flex flex-col gap-6 py-8 px-6">
       <div style={{ height: "10%" }} className="thumb flex gap-8 items-center">
@@ -19,18 +20,27 @@ const BlogCard = () => {
         distinctio voluptatum totam ipsum quasi nesciunt! Lorem ipsum dolor sit
         amet consectetur adipisicing elit. Non, suscipit.
       </div>
-      <div style={{paddingLeft:"6%"}} className="flex ">
+      <div className="flex gap-6">
         <div
-          style={{ padding: "1%",width:"15%" }}
+          style={{ padding: "0.5%",width:"15%" }}
           onClick={(e) => setLikeState(!likeState)}
-          className="border-2 border-gray-400 flex justify-around items-center"
+          className="border-2 border-gray-400 flex gap-2 justify-center items-center"
         >
           {likeState ? (
-            <AiFillLike size={30} className="text-red-400 like-animation" />
+            <AiFillLike size={25} className="text-red-400 like-animation" />
           ) : (
-            <AiOutlineLike size={30} className="like-animation" />
+            <AiOutlineLike size={25} className="like-animation" />
           )}
-          <div>Like</div>
+          <div className="text-base">Like</div>
+        </div>
+        <div
+        onClick={()=>setShareState(1)}
+        onAnimationEnd={()=>setShareState(0)}
+        sharestate={shareState}
+          style={{ padding: "0.5%",width:"15%" }}
+          className="border-2 border-gray-400 flex gap-2 justify-center items-center">
+          <AiOutlineShareAlt onClick={(e)=>{e.target}} className={shareState?"like-animation":""} size={25}/>
+          <div className="text-base">Share</div>
         </div>
       </div>
     </div>

@@ -1,0 +1,339 @@
+[
+    {
+      "name": "Premium Dog Food",
+      "price": 29.99,
+      "category": "food",
+      "stock": 100
+    },
+    {
+      "name": "Catnip Mouse Toy",
+      "price": 9.99,
+      "category": "toys",
+      "stock": 75
+    },
+    {
+      "name": "Grooming Brush for Dogs",
+      "price": 15.49,
+      "category": "grooming",
+      "stock": 50
+    },
+    {
+      "name": "Fish Flavored Cat Treats",
+      "price": 7.99,
+      "category": "treats",
+      "stock": 120
+    },
+    {
+      "name": "Comfortable Pet Bed",
+      "price": 45.99,
+      "category": "beds",
+      "stock": 30
+    },
+    {
+      "name": "Interactive Ball Toy",
+      "price": 12.99,
+      "category": "toys",
+      "stock": 60
+    },
+    {
+      "name": "Dog Shampoo",
+      "price": 8.49,
+      "category": "grooming",
+      "stock": 40
+    },
+    {
+      "name": "Chicken Jerky Dog Treats",
+      "price": 14.99,
+      "category": "treats",
+      "stock": 90
+    },
+    {
+      "name": "Cozy Cat Cave",
+      "price": 32.99,
+      "category": "beds",
+      "stock": 25
+    },
+    {
+      "name": "Squeaky Plush Toy",
+      "price": 6.99,
+      "category": "toys",
+      "stock": 80
+    },
+    {
+      "name": "Puppy Training Pads",
+      "price": 19.99,
+      "category": "training",
+      "stock": 60
+    },
+    {
+      "name": "Dental Chew Sticks",
+      "price": 10.49,
+      "category": "treats",
+      "stock": 110
+    },
+    {
+      "name": "Cat Litter Box",
+      "price": 24.99,
+      "category": "litter",
+      "stock": 35
+    },
+    {
+      "name": "Adjustable Dog Collar",
+      "price": 13.99,
+      "category": "accessories",
+      "stock": 50
+    },
+    {
+      "name": "Soft Puppy Blanket",
+      "price": 18.99,
+      "category": "beds",
+      "stock": 20
+    },
+    {
+      "name": "Bird Seed Mix",
+      "price": 5.99,
+      "category": "food",
+      "stock": 75
+    },
+    {
+      "name": "Sisal Ball Cat Toy",
+      "price": 7.49,
+      "category": "toys",
+      "stock": 45
+    },
+    {
+      "name": "Pet Grooming Gloves",
+      "price": 11.99,
+      "category": "grooming",
+      "stock": 30
+    },
+    {
+      "name": "Tuna Flavored Catnip",
+      "price": 3.99,
+      "category": "treats",
+      "stock": 100
+    },
+    {
+      "name": "Waterproof Dog Bed Liner",
+      "price": 14.99,
+      "category": "beds",
+      "stock": 15
+    },
+    {
+      "name": "Rope Tug Toy for Dogs",
+      "price": 8.99,
+      "category": "toys",
+      "stock": 70
+    },
+    {
+      "name": "Flea and Tick Shampoo",
+      "price": 16.49,
+      "category": "grooming",
+      "stock": 40
+    },
+    {
+      "name": "Salmon Dog Treats",
+      "price": 12.99,
+      "category": "treats",
+      "stock": 85
+    },
+    {
+      "name": "Heated Cat Bed",
+      "price": 39.99,
+      "category": "beds",
+      "stock": 18
+    },
+    {
+      "name": "Chewable Dog Vitamins",
+      "price": 22.99,
+      "category": "supplements",
+      "stock": 25
+    },
+    {
+      "name": "Rubber Fetch Ball",
+      "price": 6.49,
+      "category": "toys",
+      "stock": 55
+    },
+    {
+      "name": "Ferret Food Pellets",
+      "price": 11.99,
+      "category": "food",
+      "stock": 60
+    },
+    {
+      "name": "Pet First Aid Kit",
+      "price": 27.99,
+      "category": "safety",
+      "stock": 10
+    },
+    {
+        "name": "Organic Puppy Chow",
+        "price": 34.99,
+        "category": "food",
+        "stock": 80
+      },
+      {
+        "name": "Feathered Cat Teaser Wand",
+        "price": 14.99,
+        "category": "toys",
+        "stock": 65
+      },
+      {
+        "name": "Silicone Dog Paw Cleaner",
+        "price": 19.49,
+        "category": "grooming",
+        "stock": 45
+      },
+      {
+        "name": "Duck Liver Dog Treats",
+        "price": 8.99,
+        "category": "treats",
+        "stock": 100
+      },
+      {
+        "name": "Luxury Orthopedic Pet Bed",
+        "price": 59.99,
+        "category": "beds",
+        "stock": 25
+      },
+      {
+        "name": "Interactive Squeaky Ball",
+        "price": 10.99,
+        "category": "toys",
+        "stock": 50
+      },
+      {
+        "name": "Aloe Vera Dog Shampoo",
+        "price": 12.49,
+        "category": "grooming",
+        "stock": 35
+      },
+      {
+        "name": "Salmon Bites Cat Treats",
+        "price": 6.49,
+        "category": "treats",
+        "stock": 90
+      },
+      {
+        "name": "Memory Foam Cat Bed",
+        "price": 42.99,
+        "category": "beds",
+        "stock": 20
+      },
+      {
+        "name": "Indestructible Rubber Dog Toy",
+        "price": 15.99,
+        "category": "toys",
+        "stock": 75
+      },
+      {
+        "name": "Puppy Potty Training Pads",
+        "price": 24.99,
+        "category": "training",
+        "stock": 55
+      },
+      {
+        "name": "Dental Health Dog Chews",
+        "price": 11.49,
+        "category": "treats",
+        "stock": 110
+      },
+      {
+        "name": "Automatic Litter Box",
+        "price": 29.99,
+        "category": "litter",
+        "stock": 30
+      },
+      {
+        "name": "Reflective Dog Collar",
+        "price": 17.99,
+        "category": "accessories",
+        "stock": 40
+      },
+      {
+        "name": "Warm Fleece Puppy Blanket",
+        "price": 21.99,
+        "category": "beds",
+        "stock": 15
+      },
+      {
+        "name": "Wild Bird Seed Mix",
+        "price": 7.99,
+        "category": "food",
+        "stock": 70
+      },
+      {
+        "name": "Catnip-infused Sisal Ball",
+        "price": 9.49,
+        "category": "toys",
+        "stock": 40
+      },
+      {
+        "name": "Pet Hair Deshedding Gloves",
+        "price": 13.99,
+        "category": "grooming",
+        "stock": 28
+      },
+      {
+        "name": "Tuna Flavored Dental Sticks",
+        "price": 4.99,
+        "category": "treats",
+        "stock": 95
+      },
+      {
+        "name": "Waterproof Orthopedic Dog Bed",
+        "price": 19.99,
+        "category": "beds",
+        "stock": 18
+      },
+      {
+        "name": "Floating Water Ball for Dogs",
+        "price": 7.49,
+        "category": "toys",
+        "stock": 60
+      },
+      {
+        "name": "Flea and Tick Prevention Shampoo",
+        "price": 18.49,
+        "category": "grooming",
+        "stock": 35
+      },
+      {
+        "name": "Turkey Jerky Dog Treats",
+        "price": 14.49,
+        "category": "treats",
+        "stock": 80
+      },
+      {
+        "name": "Heated Igloo Cat Bed",
+        "price": 49.99,
+        "category": "beds",
+        "stock": 22
+      },
+      {
+        "name": "Multivitamin Dog Supplements",
+        "price": 26.99,
+        "category": "supplements",
+        "stock": 25
+      },
+      {
+        "name": "Rubber Fetch Disc",
+        "price": 8.49,
+        "category": "toys",
+        "stock": 45
+      },
+      {
+        "name": "Ferret Crunchy Treats",
+        "price": 10.99,
+        "category": "food",
+        "stock": 50
+      },
+      {
+        "name": "Pet Emergency First Aid Kit",
+        "price": 32.99,
+        "category": "safety",
+        "stock": 10
+      }
+  ]
+  

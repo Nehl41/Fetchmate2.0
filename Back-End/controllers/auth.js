@@ -10,16 +10,19 @@ const asyncWrapper = require("../utils/asyncWrapper");
 const { signAccessToken } = require("../utils/signToken");
 
 exports.signUpUser = asyncWrapper(async (req, res, next) => {
-  const { name, email, mobile, password, petParent, petSitter,country,city,address,DOB,state } = req.body;
+  console.log("Sign Up Accessed");
+  const { name, email, phoneNumber,altNumber, password, petParent, petSitter,country,city,address,DOB,state } = req.body;
   const roles = [];
   roles.push("buyer");
   if (petParent) roles.push("petParent");
   if (petSitter) roles.push("petSitter");
+  if(!password) throw new Error("Password Required")
   const hashedPassword = await bcrypt.hash(password, 2);
   const user = await User.create({
     name,
     email,
-    mobile,
+    mobile:phoneNumber,
+    alternateMobile:altNumber,
     roles,
     password: hashedPassword,
     country,city,address,DOB,state

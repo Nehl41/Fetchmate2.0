@@ -17,9 +17,9 @@ const blogSchema = new Schema(
       min: [20, "Blog Must Have Alteast 20 Characters"],
       max: [100, "Blog Can Have Maximum Of 100 charcters"],
     },
-    image: {
-      type: String,
-    },
+    image:{
+      type:String
+    }
   },
   {
     timestamps: true,

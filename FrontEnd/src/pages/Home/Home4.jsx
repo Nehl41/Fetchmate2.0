@@ -1,6 +1,7 @@
 import React from "react";
 
 import LandingSlider from "../../components/LandingSlider";
+import { Link } from "react-router-dom";
 
 const Home4 = () => {
   return (
@@ -17,12 +18,14 @@ const Home4 = () => {
       </div>
       <div className="flex pt-10 items-center justify-center gap-10">
         <div className="button-wrapper row-span-2">
+          <Link to="/shop">
           <button
             type="button"
             className="bg-[#FF9F1C] hover:bg-yellow-500 rounded-lg font-medium text-xl px-4 py-2 "
           >
             Shop Now
           </button>
+          </Link>
         </div>
         <div className="button-wrapper">
           <button

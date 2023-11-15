@@ -59,7 +59,7 @@ const Home1 = () => {
                 alt=""
               />
             </div>
-            <div style={{height:thumb.height,width:thumb.width}} className="text-3xl relative bg-[#CBF3F0] inline">
+            <div style={{height:"60%",width:"60%"}} className="text-3xl relative rounded-full bg-[#CBF3F0] inline">
               <AiOutlinePlus className="inline relative font-bold rounded-full" />
             </div>
           </div>
@@ -73,7 +73,7 @@ const Home1 = () => {
           style={{ width: "fit-content", height: "fit-content" }}
           className="capsule-image-wrapper1 side-capsule-shadow flex items-center overflow-hidden"
         >
-          <img src={LandingImg1} alt="" className="" />
+          <img src={LandingImg1} alt="" className="" title="a happy pet parent" />
         </div>
         <div
           style={{ width: "fit-content", height: "fit-content" }}

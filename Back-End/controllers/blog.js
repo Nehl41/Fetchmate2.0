@@ -1,4 +1,5 @@
 const Blog = require("../models/Blog");
+const Product = require("../models/Product");
 const asyncWrapper = require("../utils/asyncWrapper");
 
 // const cloudinary = require("cloudinary").v2;
@@ -25,13 +26,13 @@ const asyncWrapper = require("../utils/asyncWrapper");
 
 exports.addBlog = asyncWrapper(async (req, res, next) => {
  
-  const { content, title } = req.body;
+  const { content, title,author } = req.body;
 
   const path=req.file.path
 
   
 const blog=await Blog.create({
-  content,title,image:path
+  content,title,image:path,author
 })
 
 res.json(blog)
@@ -45,3 +46,13 @@ exports.getAllBlogs = asyncWrapper(async (req, res, next) => {
 });
 
 exports.getMyBlogs = asyncWrapper(async (req, res, next) => {});
+
+
+exports.addProduct=asyncWrapper(async (req,res,next)=>{
+  const {name,price,stock,category}=req.body
+  const image=req.file.path
+
+  const newProduct= await Product.create({name,price,stock,imageLink:image,category})
+
+  res.json(newProduct)
+})
