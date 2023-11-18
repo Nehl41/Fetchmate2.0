@@ -1,9 +1,22 @@
+ /* Global CSS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Proza Libre", sans-serif;
 }
+
+html{
+  scroll-behavior: smooth;
+}
+
+
+/* /components/NavBar */
+.nav-bg{
+  background-color: black;
+}
+
+
 .capsule-image-wrapper1 {
   border-radius: 50%/20%;
   background: linear-gradient(161.78deg, #ff9f1c 3.43%, #cbf3f0 79.81%);

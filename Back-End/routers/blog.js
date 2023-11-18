@@ -1,29 +1,25 @@
-const router=require('express').Router()
-const {addBlog, addProduct}=require('../controllers/blog')
+// 3rd Party Imports
+const router = require("express").Router();
 
-const cloudinary = require("cloudinary").v2;
-const multer=require('multer')
-const {CloudinaryStorage}=require('multer-storage-cloudinary')
+// Controller Imports
+const {
+  addBlog,
+  addProduct,
+  getAllBlogs,
+  getMyBlogs,
+  likePost,
+  getLikedBlogs,
+  getThisBlog,
+} = require("../controllers/blog");
 
-cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUDNAME,
-    api_key: process.env.CLOUD_API_KEY,
-    api_secret: process.env.CLOUDINARY_SECRET,
-    secure: true,
-  });
-  
-  const storage=new CloudinaryStorage({
-    cloudinary,
-    params:{
-      folder:'products'
-    }
-  })
-  
-  const upload=multer({storage})
+// Middleware Imports
+const protectRoute = require("../middlewares/routeProtect");
 
-router.post('/',upload.single('image'),addBlog);
+router.post("/like/:blogId", protectRoute, likePost);
+router.post("/", protectRoute, addBlog);
+router.get("/", getAllBlogs);
+router.get("/me", protectRoute, getMyBlogs);
+router.get("/liked-posts", protectRoute, getLikedBlogs);
+router.get("/:blogId", protectRoute, getThisBlog);
 
-router.post('/add-product',upload.single('image'),addProduct)
-
-
-module.exports=router
+module.exports = router;
