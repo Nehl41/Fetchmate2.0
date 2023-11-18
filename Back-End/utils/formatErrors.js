@@ -1,3 +1,5 @@
+// This Function Organises errors thrown by mongoose validation
+
 const formatErrors=(errors)=>{
     const formattedErrors=errors.map(err=>({
         param:err.path,

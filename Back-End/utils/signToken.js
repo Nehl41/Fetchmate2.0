@@ -1,5 +1,7 @@
+// 3rd Party Imports
 const jwt = require("jsonwebtoken");
 
+// function to sign jwt access token
 exports.signAccessToken = (userId) => {
   return new Promise((resolve, reject) => {
     console.log(process.env.JWT_SECRET);
