@@ -26,9 +26,11 @@ exports.addPet = asyncWrapper(async (req, res, next) => {
 });
 
 exports.getAllPets = asyncWrapper(async (req, res, next) => {
+  console.log("Route Accessed!");
   const user = req.user._id;
   const pets = await Pet.find({ petParent: user });
-  res.json(pets);
+  
+  res.json({pets,status:true});
 });
 
 exports.getThisPet = asyncWrapper(async (req, res, next) => {

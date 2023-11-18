@@ -11,13 +11,16 @@ const { addPet, getAllPets, getThisPet } = require("../controllers/pet");
 // Utility Imports
 const getCloudinaryConfig = require("../utils/cloudinary");
 
+// Middleware Imports
+const protectRoute=require('../middlewares/routeProtect')
+
 
 
 const upload = getCloudinaryConfig("pet")
 
 router.post("/", upload.single("image"), addPet);
 
-router.get("/", getAllPets);
+router.get("/", protectRoute,getAllPets);
 
 router.get("/:petId", getThisPet);
 
