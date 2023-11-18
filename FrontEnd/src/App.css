@@ -164,3 +164,10 @@ html{
   /* box-shadow: 7px 7px 19px #828282, -7px -7px 19px #ffffff; */
   box-shadow: 4px 7px 13px -5px rgba(0,0,0,0.27);
 }
+
+
+.cover-image{
+background-image: url('./assets/FETCHMATE LOGO/Secondary Logo/IconNameOrange.svg');
+background-position: center;
+background-repeat: no-repeat;
+}

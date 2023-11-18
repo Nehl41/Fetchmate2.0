@@ -8,8 +8,8 @@ const ProductCard = ({name,price,weight,image}) => {
       <img className='h-full w-full' src={image} alt="" srcset="" />
       </div>
       <div className='font-bold'>{name}</div>
-      <div className='text-base font-bold'>Rs. {price}</div>
-      <div className='text-sm'>{weight} g</div>
+      <div className='text-base font-bold'>{price}</div>
+      <div className='text-sm'>{weight}</div>
     </div>
   )
 }

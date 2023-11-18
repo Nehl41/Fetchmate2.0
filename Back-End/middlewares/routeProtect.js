@@ -22,9 +22,9 @@ module.exports = protectRoute = async (req, res, next) => {
         "name",
         "email",
       ]);
-        res.json({message:user})
-      // req.user=user
-      // next();
+      
+      req.user=user
+      next();
     }
   } catch (error) {
     res.status(401);
