@@ -1,7 +1,19 @@
+// Utility Imports
 const CustomResponse = require("../utils/Response");
-const asyncWrapper = require("../utils/asyncWrapper");
 
 module.exports = async (error, req, res, next) => {
+
+  if (error.name == "JsonWebTokenError" || error.message=="JsonWebTokenError") {
+    const err = new CustomResponse(
+      false,
+      null,
+      error.message,
+      "You need to sign in to proceed."
+    );
+    return res.json(err);
+  }
+
+
   if (error.code == 11000) {
     const collection = error.message
       .split(" ")[5]
@@ -16,8 +28,26 @@ module.exports = async (error, req, res, next) => {
       `${collection} with this ${key} Already Exists`
     );
     return res.json(response);
-  }
-  console.log(error);
-  res.status(500).json(new CustomResponse(false, null, error.message));
+    
+  } 
+  if (error.name===("ValidationError")) {
+    const feilds = Object.keys(error.errors);
+    const validationErrors = [];
+    feilds.forEach((value) => {
+      const errMsg=error.errors[value].message.replace("Path"," ").replace("`","").replace("`","")
+      validationErrors.push(`${errMsg}`);
+    });
+    return res.json(
+      new CustomResponse(
+        false,
+        null,
+        validationErrors,
+        validationErrors[0]
+      )
+    );
 
+    //  console.log(JSON.stringify(error.errors.mobile.message));
+  }
+  console.log(error.name);
+  res.json(new CustomResponse(false, null,error,error.message));
 };

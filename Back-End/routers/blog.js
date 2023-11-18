@@ -1,11 +1,25 @@
-const router=require('express').Router()
-const {addBlog,getCloudinarySignature}=require('../controllers/blog')
+// 3rd Party Imports
+const router = require("express").Router();
 
-// router.get('/',)
+// Controller Imports
+const {
+  addBlog,
+  addProduct,
+  getAllBlogs,
+  getMyBlogs,
+  likePost,
+  getLikedBlogs,
+  getThisBlog,
+} = require("../controllers/blog");
 
-// router.get('/:id/blogs',)
+// Middleware Imports
+const protectRoute = require("../middlewares/routeProtect");
 
-router.post('/',addBlog);
+router.post("/like/:blogId", protectRoute, likePost);
+router.post("/", protectRoute, addBlog);
+router.get("/", getAllBlogs);
+router.get("/me", protectRoute, getMyBlogs);
+router.get("/liked-posts", protectRoute, getLikedBlogs);
+router.get("/:blogId", protectRoute, getThisBlog);
 
-
-module.exports=router
+module.exports = router;

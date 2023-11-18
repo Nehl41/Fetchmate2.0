@@ -15,8 +15,10 @@ import Error404 from './pages/Error404/Error404.jsx'
 import Shop from './pages/Shop/Shop.jsx'
 import Login from './components/Login.jsx'
 import SignUp from './components/SignUp.jsx'
-import Profile from './components/UserProfile.jsx'
 
+import { ToastContainer } from 'react-toastify'
+
+import Profile from './components/UserProfile.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,10 +41,14 @@ const router = createBrowserRouter([
     path: "/upload",
     element: <UploadBlog />,
   },
+  {
+    path:"/shop",element:<Shop/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
    <RouterProvider router={router}/>
+   <ToastContainer/> 
   </React.StrictMode>
 )

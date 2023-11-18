@@ -1,9 +1,13 @@
+// Model Imports
+const User = require("../models/User");
+
+// Third Party Package Imports
 const jwt = require("jsonwebtoken");
-const User = require("../model/User");
 require("dotenv").config();
 
 
-exports.protectRoute = async (req, res, next) => {
+// Controller Functions
+module.exports = protectRoute = async (req, res, next) => {
   let token;
 
   try {
@@ -13,17 +17,20 @@ exports.protectRoute = async (req, res, next) => {
     ) {
       token = req.headers.authorization.split(" ")[1];
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      req.user = await User.findById(decoded.userId).select([
+      const user = await User.findById(decoded.userId).select([
         "_id",
         "name",
         "email",
       ]);
-      next();
+        res.json({message:user})
+      // req.user=user
+      // next();
     }
   } catch (error) {
-    console.log(error);
     res.status(401);
     next(error);
   }
-  if (!token) next(new Error("No Token, Not Authorised"));
+  if (!token) next(new Error("JsonWebTokenError"));
 };
+
+

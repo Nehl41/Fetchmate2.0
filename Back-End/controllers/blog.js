@@ -1,45 +1,79 @@
-const cloudinary = require("cloudinary").v2;
-
+// Model Imports
 const Blog = require("../models/Blog");
+
+// Utility Imports
 const asyncWrapper = require("../utils/asyncWrapper");
+const shuffle = require("../utils/shuffleArray");
 
-const cloudinaryConfig = cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUDNAME,
-  api_key: process.env.CLOUD_API_KEY,
-  api_secret: process.env.CLOUDINARY_SECRET,
-  secure: true,
-});
 
-// exports.getCloudinarySignature = asyncWrapper(async (req, res, next) => {
-//   const timeStamp = Math.round(new Date().getTime() / 1000);
-//   const signature = cloudinary.utils.api_sign_request(
-//     {
-//       timeStamp,
-//     },
-//     cloudinaryConfig.api_secret
-//   );
-//   res.json({ timeStamp, signature });
-// });
 
+//      Controller Functions
 exports.addBlog = asyncWrapper(async (req, res, next) => {
-  const { content, title, image } = req.body;
-
-  console.log("Path Add Blog Visited!");
-
-  if (image) {
-    const uploadResponse = await cloudinary.uploader.upload(image, {
-      upload_preset: "mj5njgt8",
-    });
-    if (uploadResponse) {
-      const blog = await Blog({ title, content, image:uploadResponse.url });
-      res.status(200).json(blog);
-    }
-  }
+  const { content, title } = req.body;
+  const user = req.user._id;
+  const blog = await Blog.create({
+    content,
+    title,
+    author: user,
+  });
+  res.json(blog);
 });
 
 exports.getAllBlogs = asyncWrapper(async (req, res, next) => {
-    const blogs=await Blog.find()
-    res.json(blogs)
+  const blogs = await Blog.find();
+  const shuffled = shuffle(blogs);
+  res.json(shuffled);
 });
 
-exports.getMyBlogs = asyncWrapper(async (req, res, next) => {});
+exports.getMyBlogs = asyncWrapper(async (req, res, next) => {
+  const user = req.user._id;
+  const myBlogs = await Blog.find({ author: user });
+  res.json(myBlogs);
+});
+
+exports.getLikedBlogs = asyncWrapper(async (req, res, next) => {
+  const user = req.user._id;
+  const likedPosts = await Blog.find({ likedBy: user }).populate("author");
+  res.json(likedPosts);
+});
+
+exports.likePost = asyncWrapper(async (req, res, next) => {
+  const postId = req.params.blogId;
+  const user = req.user._id;
+  const myBlog = await Blog.findById(postId);
+  if (myBlog.likedBy.includes(user))
+    return res.json({ message: "Post Liked Successfully!", post: myBlog });
+  myBlog.likedBy.push(user);
+  const { _id, ...update } = myBlog;
+  const updatedPost = await Blog.findByIdAndUpdate(postId, update, {
+    new: true,
+  });
+  res.json({
+    status: true,
+    post: updatedPost,
+    message: "Post Liked Successfully!",
+  });
+});
+
+exports.getThisBlog = asyncWrapper(async (req, res, next) => {
+  const blogId = req.params.blogId;
+  const blog = await Blog.find({ _id: blogId });
+  res.json(blog);
+});
+
+
+
+// exports.addProduct = asyncWrapper(async (req, res, next) => {
+//   const { name, price, stock, category } = req.body;
+//   const image = req.file.path;
+
+//   const newProduct = await Product.create({
+//     name,
+//     price,
+//     stock,
+//     imageLink: image,
+//     category,
+//   });
+
+//   res.json(newProduct);
+// });

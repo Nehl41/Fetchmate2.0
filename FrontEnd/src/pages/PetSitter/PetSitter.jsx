@@ -50,6 +50,10 @@ const PetSitter = () => {
           <div>Earn Rs. 250-300/hrs </div>
         </div>
       </div>
+
+
+          {/* Pet Sitting Page Decor */}
+
       <div className="mt-16 h-screen">
         <div className="text-2xl font-medium text-center text-[#2EC4B6]">
           Embark on your pet sitting journey
@@ -99,6 +103,8 @@ const PetSitter = () => {
               well-earned compensation and cherish the furr moments
             </div>
           </div>
+
+      {/* Central Shape and Image */}
           <div
             style={{
               bottom: "450px",

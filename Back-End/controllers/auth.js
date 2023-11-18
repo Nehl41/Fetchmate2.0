@@ -9,8 +9,27 @@ const CustomResponse = require("../utils/Response");
 const asyncWrapper = require("../utils/asyncWrapper");
 const { signAccessToken } = require("../utils/signToken");
 
+//      Controller Functions
+
 exports.signUpUser = asyncWrapper(async (req, res, next) => {
-  const { name, email, mobile, password, petParent, petSitter,country,city,address,DOB,state } = req.body;
+  const {
+    name,
+    email,
+    phoneNumber,
+    altNumber,
+    password,
+    petParent,
+    petSitter,
+    country,
+    city,
+    address,
+    DOB,
+    state,
+    terms,
+  } = req.body;
+
+  if (!terms) throw new Error("Please Accept The Terms And Conditions");
+
   const roles = [];
   roles.push("buyer");
   if (petParent) roles.push("petParent");
@@ -19,12 +38,18 @@ exports.signUpUser = asyncWrapper(async (req, res, next) => {
   const user = await User.create({
     name,
     email,
-    mobile,
+    mobile: phoneNumber,
+    alternateMobile: altNumber,
     roles,
     password: hashedPassword,
-    country,city,address,DOB,state
+    country,
+    city,
+    address,
+    DOB,
+    state,
   });
-  user.password="*****"
+  user.password = "*****";
+  console.log(user);
   const response = new CustomResponse(true, user, null, "Sign Up Successful!");
   res.status(200).json(response);
 });
@@ -37,10 +62,39 @@ exports.logInUser = asyncWrapper(async (req, res, next) => {
   if (!isPassword) throw new Error("Invalid Password!");
 
   const accessToken = await signAccessToken(user.id);
-  const responseUser = await User.findOne({ email }).select([
-    "-password",
-  ]);
+  const responseUser = await User.findOne({ email }).select(["-password"]);
 
-  req.user = responseUser;
-  res.json({ accessToken, responseUser });
+  // req.user = responseUser;
+  res.json({ accessToken, responseUser,status:true });
+});
+
+exports.addUserImage = asyncWrapper(async (req, res, next) => {
+  const user = req.user._id;
+
+  const url = req.file.path;
+
+  const newDetails = await User.findByIdAndUpdate(
+    user,
+    {
+      profileUrl: url,
+    },
+    {
+      new: true,
+    }
+  );
+
+  res.json(newDetails);
+});
+
+exports.becomePetSitter = asyncWrapper(async (req, res, next) => {
+  const user = req.user._id;
+  const newUser = await User.findByIdAndUpdate(
+    user,
+    {
+      roles: ["buyer", "petSitter", "petParent"],
+    },
+    { new: true }
+  );
+
+  res.json(newUser);
 });

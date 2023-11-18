@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import OrangeLogo from "../assets/FETCHMATE LOGO/OrangeLogo.png";
 import { AiOutlineSearch } from "react-icons/ai";
-import { NavLink } from "react-router-dom";
+import { FaCartShopping } from "react-icons/fa6";
+import { FaUserAlt } from "react-icons/fa";
+import { Link, NavLink } from "react-router-dom";
+import useUserStore from "../Store/userStore";
+import AvatarDropDown from "./AvatarDropDown";
 
 const NavBar = () => {
+  const isLoggedIn = useUserStore((state) => state.isLoggedIn);
+
+  const [menuState,setMenuState]=useState()
+
   return (
-    <nav className="hidden p-4 px-16 sm:flex items-center">
+    <nav
+      className={` bg-white z-50 mynav hidden p-4 px-16 sm:flex sticky items-center top-0 `}
+    >
       <div className="nav-left sm:flex items-center w-6/12 justify-between">
-        <img src={OrangeLogo} alt="FetchMate Logo" className="h-16 w-16" />
+        <NavLink to={"/"}>
+          {" "}
+          <img src={OrangeLogo} alt="FetchMate Logo" className="h-16 w-16" />
+        </NavLink>
         <ul className="flex pt-2 basis-4/5 justify-evenly content-center text-base">
           <li>
             <NavLink
@@ -72,22 +85,36 @@ const NavBar = () => {
               placeholder="Search"
             />
           </div>
-         
-          <button
-          style={{marginRight:"4.5%"}}
-            type="button"
-            className="focus:outline-none bg-yellow-400 hover:bg-yellow-500 font-medium rounded-lg text px-4 py-2 dark:focus:ring-yellow-900"
-          >
-            Login
-          </button>
-          <button
-          style={{padding:"1.65% 2.5%"}}
-            type="button"
-            className="border-2 text-cyan-400 border-cyan-400 font-medium rounded-lg text-sm text-center border-b-4 active:border-b-2"
-          >
-            Get Started
-          </button>
-          
+          {isLoggedIn ? (
+            <FaCartShopping size={35} />
+          ) : (
+            <Link to="/login">
+              <button
+                title="Login"
+                style={{ marginRight: "4.5%" }}
+                type="button"
+                className="focus:outline-none bg-yellow-400 hover:bg-yellow-500 font-medium rounded-lg text px-4 py-2 dark:focus:ring-yellow-900"
+              >
+                Login
+              </button>
+            </Link>
+          )}
+          {isLoggedIn ? (
+            <button  onClick={()=>setMenuState(!menuState)}>
+              <div ><FaUserAlt size={30} /></div>
+              <AvatarDropDown displayState={menuState} />
+            </button>
+          ) : (
+            <Link to="/signup">
+              <button
+                style={{ padding: "1.65% 2.5%" }}
+                type="button"
+                className="border-2 text-cyan-400 border-cyan-400 font-medium rounded-lg text-sm text-center border-b-4 active:border-b-2"
+              >
+                Get Started
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </nav>
