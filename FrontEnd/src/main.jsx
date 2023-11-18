@@ -15,8 +15,10 @@ import Error404 from './pages/Error404/Error404.jsx'
 import Shop from './pages/Shop/Shop.jsx'
 import Login from './components/Login.jsx'
 import SignUp from './components/SignUp.jsx'
+
 import { ToastContainer } from 'react-toastify'
 
+import Profile from './components/UserProfile.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,6 +34,9 @@ const router = createBrowserRouter([
   },
   { path: "/login", element: <Login /> },
   { path: "/signup", element: <SignUp /> },
+  {
+    path: "/userprofile" , element: <Profile/>
+  },
   {
     path: "/upload",
     element: <UploadBlog />,
