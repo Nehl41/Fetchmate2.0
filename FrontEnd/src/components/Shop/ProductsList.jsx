@@ -10,7 +10,7 @@ const ProductsList = () => {
   const fetchProducts = useStore((state) => state.fetchAllProducts);
   const sortProducts = useStore((state) => state.sortProducts);
   const priceFilter = useStore((state) => state.priceFilter);
-  const addToCart=useCartStore((state)=>state.addToCart)
+ 
 
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(5);

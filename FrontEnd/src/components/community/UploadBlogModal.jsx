@@ -2,10 +2,16 @@ import React, { useRef } from "react";
 import ReactModal from "react-modal";
 import Nehu from "../../assets/nehu.png";
 import axios from "../../utils/axiosConfig";
+import useUserStore from "../../Store/userStore";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const UploadBlogModal = ({ isModalOpen, setIsModalOpen }) => {
   const titleRef = useRef();
   const contentRef = useRef();
+  const token=useUserStore((state)=>state.jwtToken)
+  const userData=useUserStore((state)=>state.userData)
+  const navigate=useNavigate()
 
   const submitBlog = () => {
     axios({
@@ -15,12 +21,18 @@ const UploadBlogModal = ({ isModalOpen, setIsModalOpen }) => {
         title: titleRef.current.value,
         content: contentRef.current.value,
       },
+      headers:{
+        Authorization:`Bearer ${token}`
+      }
     })
       .then((res) => {
-        console.log(res);
+        if(!res.data.status) throw new Error(res.data.error[0])
+        setIsModalOpen(false)
+        navigate(0)
       })
       .catch((err) => {
-        console.log("Axios Error Occured!");
+
+       toast.error(err.message)
       });
   };
 
@@ -44,12 +56,12 @@ const UploadBlogModal = ({ isModalOpen, setIsModalOpen }) => {
       <div className="flex flex-col gap-6 h-full">
         <div className="font-bold text-2xl text-center">Release A Post!</div>
         <div style={{ height: "10%" }} className="thumb flex gap-4 sm:px-10">
-          <img className="rounded-full" src={Nehu} alt="" />
+          <img className="rounded-full" src={userData.profileUrl} alt="" />
           <div>
             <div>
-              <div className="text-xl font-bold">Nehal Patidar</div>
+              <div className="text-xl font-bold">{userData.name}</div>
             </div>
-            <div className="text-sm text-gray-500">Pet Sitter</div>
+            <div className="text-sm text-gray-500">{userData.roles[2]}</div>
           </div>
         </div>
         <input

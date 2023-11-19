@@ -1,24 +1,35 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Nehu from "../../assets/nehu.png";
 import BlogCard from "../../components/BlogCard";
 import PetSitterCard from "../../components/PetSitterCard";
 import UploadBlogModal from "../../components/community/UploadBlogModal";
 
+import useUserStore from "../../Store/userStore";
+import axios from "../../utils/axiosConfig";
+
 const Community = () => {
+  const [blogAddModal, setBlogAddModal] = useState(false);
+  const [blogs, setBlogs] = useState([{author:{profileUrl:"profile"}}]);
+  const token = useUserStore((state) => state.jwtToken);
+  const userData = useUserStore((state) => state.userData);
 
-  const [blogAddModal,setBlogAddModal]=useState(false)
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: "/blog",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((response) => {
+     setBlogs(response.data.blogs);
+    });
+  }, []);
 
-  const submitBlog = () => {
-    const content = contentRef.current.value;
-    console.log(content);
-  };
   return (
-    <div className="grid grid-cols-4 gap-2 mt-10  w-screen h-screen">
-      <div   
-        className="col-span-1 px-6 py-6 flex flex-col items-center community-component-shadow"
-      >
-        <div className="rounded-full w-full flex flex-col items-center justify-around h-1/3">
+    <div className="grid grid-cols-4 gap-2 mt-10 ">
+      <div className="col-span-1 h-fit gap-4 px-6 py-6 flex flex-col items-center community-component-shadow">
+        <div className="rounded-full gap-2 w-full flex flex-col items-center justify-around h-1/3">
           <img
             style={{ width: "25%" }}
             className=" rounded-full"
@@ -52,29 +63,35 @@ const Community = () => {
           style={{ height: "10%" }}
           className="thumb flex items-center justify-center gap-4"
         >
-          <img className="rounded-full w-16" src={Nehu} alt="" />
+          <img className="rounded-full w-16" src={userData.profileUrl} alt="" />
           <input
-            
-            style={{ borderRadius: "4%/50%",cursor:"pointer" }}
+            style={{ borderRadius: "4%/50%", cursor: "pointer" }}
             className="w-3/4 h-10 px-4 rounded-lg border-2"
             placeholder="Let The Thought Out!"
-            onClick={()=>{
-              console.log("Input Clicked")
-              setBlogAddModal(true)
+            onClick={() => {
+              setBlogAddModal(true);
             }}
           />
-          <UploadBlogModal isModalOpen={blogAddModal} setIsModalOpen={setBlogAddModal}/>
+          <UploadBlogModal
+            isModalOpen={blogAddModal}
+            setIsModalOpen={setBlogAddModal}
+          />
         </div>
-        <div className="mt-6 mx-4">
-          <BlogCard />
+        <div className="mt-6 flex flex-col gap-4 mx-4">
+         {blogs.map(({author,title,content})=>{
+          return <BlogCard image={author.profileUrl} username={author.name} content={content} title={title}   />
+         })}
+         
         </div>
       </div>
       <div className="col-span-1 flex gap-4 flex-col pt-2">
-        <div className="text-center text-xl font-bold">Pet Sitters Of The Week</div>
-          <div>
-            <PetSitterCard/>
-            <UploadBlogModal/>
-          </div>
+        <div className="text-center text-xl font-bold">
+          Pet Sitters Of The Week
+        </div>
+        <div>
+          <PetSitterCard />
+          <UploadBlogModal />
+        </div>
       </div>
     </div>
   );
