@@ -19,6 +19,7 @@ import SignUp from "./components/SignUp.jsx";
 import { ToastContainer } from "react-toastify";
 
 import Profile from "./components/UserProfile.jsx";
+import Protected from "./components/Protected.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,10 +30,10 @@ const router = createBrowserRouter([
       { path: "/pet-sitter", element: <PetSitter /> },
       { path: "/services", element: <Services /> },
       { path: "/shop", element: <Shop /> },
-      { path: "/community", element: <Community /> },
+      { path: "/community", element: <Protected compo={<Community />}/> },
       {
         path: "/userprofile",
-        element: <Profile />,
+        element: <Protected compo={<Profile />}/>,
       },
     ],
   },

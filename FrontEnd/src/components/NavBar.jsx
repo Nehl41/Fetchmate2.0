@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import OrangeLogo from "../assets/FETCHMATE LOGO/OrangeLogo.png";
 import { AiOutlineSearch } from "react-icons/ai";
-import { FaCartShopping } from "react-icons/fa6";
+import { FaCartShopping, FaLocationPinLock } from "react-icons/fa6";
 import { FaUserAlt } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import useUserStore from "../Store/userStore";
@@ -86,7 +86,7 @@ const NavBar = () => {
             />
           </div>
           {isLoggedIn ? (
-            <FaCartShopping size={35} />
+            <NavLink to={"/cart"}><FaCartShopping size={35}/></NavLink>
           ) : (
             <Link to="/login">
               <button

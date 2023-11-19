@@ -2,23 +2,20 @@ import React, { useState } from "react";
 import Nehu from "../assets/nehu.png";
 import { AiOutlineLike, AiFillLike,AiOutlineShareAlt } from "react-icons/ai";
 
-const BlogCard = () => {
+const BlogCard = ({image,username,content,title}) => {
   const [likeState, setLikeState] = useState(false);
   const [shareState,setShareState]=useState(0)
   return (
-    <div className="community-component-shadow flex flex-col gap-6 py-8 px-6">
+    <div className="bg-white community-component-shadow flex flex-col gap-6 py-8 px-6">
       <div style={{ height: "10%" }} className="thumb flex gap-8 items-center">
-        <img className="rounded-full w-14" src={Nehu} alt="" />
+        <img className="rounded-full w-14" src={image} alt="" />
         <div>
-          <div className="font-bold text-base">Nehal Patidar</div>
-          <div className="text-sm text-gray-500">pet sitter</div>
+          <div className="font-bold text-base">{username}</div>
+          <div className="text-base text-gray-500">{title}</div>
         </div>
       </div>
       <div className="">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, soluta!
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
-        distinctio voluptatum totam ipsum quasi nesciunt! Lorem ipsum dolor sit
-        amet consectetur adipisicing elit. Non, suscipit.
+        {content}
       </div>
       <div className="flex gap-6">
         <div

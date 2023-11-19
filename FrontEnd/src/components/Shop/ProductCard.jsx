@@ -1,9 +1,10 @@
 import React from "react";
+import useCartStore from "../../Store/cartStore";
 
 
 const ProductCard = ({ saleStatus,image,title,price,handleClick }) => {
 
-
+  const addToCart=useCartStore((state)=>state.addToCart)
 
   return (
     <div className="grid grid-cols-1 gap-5 text-sm sm:text-base border hover:border-yellow-500 font-anton tracking-wide">
