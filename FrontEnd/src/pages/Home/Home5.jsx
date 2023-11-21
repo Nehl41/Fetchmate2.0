@@ -2,6 +2,8 @@ import React from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 import ReviewCard from "../../components/ReviewCard";
+import sam from '../../assets/swayam.jpg'
+import nehu from '../../assets/nehu.png'
 
 const Home5 = () => {
   return (
@@ -21,7 +23,7 @@ const Home5 = () => {
         </div>
       </div>
       <div className="review-container flex justify-evenly">
-        <ReviewCard />
+        <ReviewCard image={sam} parentImage={nehu} sitterName={"Swayam Prajapat"} serviceName={"Dog Walking"} petParent={"Nehal Patidar"} />
         <ReviewCard />
       </div>
     </div>

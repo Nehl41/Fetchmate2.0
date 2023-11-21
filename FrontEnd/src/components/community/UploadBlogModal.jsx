@@ -26,8 +26,10 @@ const UploadBlogModal = ({ isModalOpen, setIsModalOpen }) => {
       }
     })
       .then((res) => {
+        console.log(res);
         if(!res.data.status) throw new Error(res.data.error[0])
         setIsModalOpen(false)
+        toast.success("Blog Uploaded Successfully!")
         navigate(0)
       })
       .catch((err) => {

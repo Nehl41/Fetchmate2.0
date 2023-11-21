@@ -1,9 +1,10 @@
 import React from "react";
 import { FaDotCircle } from "react-icons/fa";
 
-const PetProfileCard = ({ name, image, breed, gender,description }) => {
+const PetProfileCard = ({ name, image, breed, gender,description,single }) => {
+  const width=single?"100%":"30%"
   return (
-    <div style={{width:"30%"}} className="flex flex-col ">
+    <div style={{width:width}} className="flex flex-col ">
       <div className="h-52 bg-yellow-50
       translate-y-6 origin-center">
         <img

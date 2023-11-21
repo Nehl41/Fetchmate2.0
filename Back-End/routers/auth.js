@@ -8,7 +8,7 @@ const router = require("express").Router();
 const protectRoute = require("../middlewares/routeProtect");
 
 // Controller Imports
-const { logInUser, signUpUser, addUserImage,becomePetSitter } = require("../controllers/auth");
+const { logInUser, signUpUser, addUserImage,becomePetSitter,getLocalPetSitter } = require("../controllers/auth");
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUDNAME,
@@ -36,6 +36,8 @@ router.post(
   upload.single("profile"),
   addUserImage
 );
+
+router.get('/same-city',protectRoute,getLocalPetSitter)
 
 router.post("/be-petsitter",protectRoute,becomePetSitter)
 

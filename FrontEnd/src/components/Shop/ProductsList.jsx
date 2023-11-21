@@ -51,14 +51,15 @@ const ProductsList = () => {
         </select>
       </div>
       <div className="main-products-list pt-10 grid grid-cols-2 sm:grid-cols-3 gap-4">
-        {currentProducts.map(({ name,id,price,image }) => {
+        {currentProducts.map(({ name,_id,price,imageLink }) => {
           return (
             <ProductCard
               title={name}
               price={price}
               handleClick={()=>addToCart(id)}
-              image={image}
-              key={id}
+              image={imageLink}
+              key={_id}
+              keyProp={_id}
             />
           );
         })}

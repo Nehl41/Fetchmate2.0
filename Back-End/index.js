@@ -44,6 +44,6 @@ app.use(errorHandler);
 // connecting to DB than Starting the Server
 mongoose.connect(process.env.MONGODB_URI).then(()=>app.listen(3000,()=>{
     console.info("Server Online!");
-})).catch(()=>{
-    console.error("Database Connection Unsuccessful!")
+})).catch((err)=>{
+    console.error(err)
 })

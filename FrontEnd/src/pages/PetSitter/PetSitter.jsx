@@ -2,19 +2,47 @@ import React, { useEffect, useState } from "react";
 import PetSitter1 from "../../assets/petSitter1.png";
 import Jhamela from "../../assets/jhamela.png";
 
+import axios from '../../utils/axiosConfig'
+import useUserStore from "../../Store/userStore";
+import { toast } from "react-toastify";
+import PetSitterLoggedIn from './PetSitterLoggedIn'
 
 
 const PetSitter = () => {
-  
-  // const [isLoading,setIsLoading]=useState(false)
-  // useEffect(()=>{
-  //   setIsLoading(true)
-  //   setTimeout(()=>{
-  //     setIsLoading(false)
-  //   },500)
-  // },[])
 
-  //  if(isLoading) return <div>Loading Your DFatatatataat</div>
+  const token=useUserStore((state)=>state.jwtToken)
+  const isLoggedIn=useUserStore((state)=>state.isLoggedIn)
+  const setUserData=useUserStore((state)=>state.setUserData)
+  const isPetSitter=useUserStore((state)=>state.isPetSitter)
+
+  if(isPetSitter) return <PetSitterLoggedIn/>
+
+
+  const handleBecomePetSitter=async (e)=>{
+    e.preventDefault()
+    if(!isLoggedIn){
+      toast.error("Kindly Login To Proceed!")
+      return
+    }
+    const decision=confirm("Do You Really Wanna Become A Pet Sitter?")
+    if(!decision) return;
+   try {
+    const response= await axios({
+      url:"/auth/be-petsitter",
+      method:"POST",
+      headers:{
+        Authorization:`Bearer ${token}`
+      }
+    })
+    if(!response.data.status) throw new Error(response.data.message)
+    setUserData(response.data.newUser)
+    toast.success("Congratulations You're Now A Pet Sitter")
+
+   } catch (error) {
+    toast.error(error.message)
+   }
+  }
+  
 
   return (
     <div className="pt-20 sm:px-40 " initial={{opacity:"0"}}>
@@ -34,7 +62,7 @@ const PetSitter = () => {
             difference in a pet's life
           </div>
           <div className="text-center">
-            <button className="bg-[#CBF3F0] text-xl font-medium p-4 rounded-lg">
+            <button onClick={handleBecomePetSitter} className="bg-[#CBF3F0] text-xl font-medium p-4 rounded-lg">
               Become Pet Sitter
             </button>
           </div>

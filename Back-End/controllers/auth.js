@@ -18,7 +18,6 @@ exports.signUpUser = asyncWrapper(async (req, res, next) => {
     phoneNumber,
     altNumber,
     password,
-    petParent,
     petSitter,
     country,
     city,
@@ -32,7 +31,7 @@ exports.signUpUser = asyncWrapper(async (req, res, next) => {
 
   const roles = [];
   roles.push("buyer");
-  if (petParent) roles.push("petParent");
+  roles.push("petParent");
   if (petSitter) roles.push("petSitter");
   const hashedPassword = await bcrypt.hash(password, 2);
   const user = await User.create({
@@ -96,5 +95,35 @@ exports.becomePetSitter = asyncWrapper(async (req, res, next) => {
     { new: true }
   );
 
-  res.json(newUser);
+  res.json({status:true,newUser});
 });
+
+
+exports.getLocalPetSitter=asyncWrapper(async (req,res,next)=>{
+  const user=req.user._id
+  const result=await User.aggregate([
+    {$match:{_id:user}},
+    {$project:{_id:0,city:1}},
+    {
+      $lookup:{
+        from:'users',
+        localField:'city',
+        foreignField:'city',
+        as:'sameCity'
+      }
+    },
+    {$unwind:'$sameCity'},
+    {
+      $project:{
+        'sameCity.name':1,
+        'sameCity.city':1,
+        'sameCity.profileUrl':1,
+        'sameCity._id':1
+      }
+    }
+  ])
+  const sliced=result.slice(0,5)
+
+  res.json({status:true,locals:sliced})
+}
+)

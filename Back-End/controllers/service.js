@@ -19,12 +19,12 @@ exports.requestService = asyncWrapper(async (req, res, next) => {
     serviceType,
     status,
   });
-  res.json(request);
+  res.json({status:true,request});
 });
 
 exports.getMyRequests = asyncWrapper(async (req, res, next) => {
   const user = req.user._id;
-  const requests = await Service.find({ petSitter: user });
+  const requests = await Service.find({ petSitter: user }).populate('petParent').populate('petDetails');
   res.json({ status: true, requests });
 });
 
