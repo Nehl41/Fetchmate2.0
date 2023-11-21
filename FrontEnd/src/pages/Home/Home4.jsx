@@ -28,12 +28,14 @@ const Home4 = () => {
           </Link>
         </div>
         <div className="button-wrapper">
+          <Link to={"/cart"}>
           <button
             type="button"
             className=" hover:bg-yellow-300 text-yellow-400  border-2 border-yellow-400 rounded-lg font-medium  text-xl px-4 py-2 "
           >
             View Cart
           </button>
+          </Link>
         </div>
       </div>
     </div>

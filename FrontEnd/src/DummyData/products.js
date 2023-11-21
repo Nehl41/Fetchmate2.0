@@ -2,156 +2,117 @@ const imageLink = "https://images.ctfassets.net/yadj1kx9rmg0/wtrHxeu3zEoEce2MokC
 
 const products = [
   {
-    name: "Product 1",
+    _id:"1",
+    name: "Premium Dog Food",
+    price: 25.99,
+    imageLink: "https://m.media-amazon.com/images/I/715hEk7VmXL._SL1500_.jpg",
+    category: "food",
+    stock: 100
+  },
+  {
+    _id:"2",
+    name: "Interactive Cat Toy",
+    price: 12.49,
+    imageLink: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTtyrXjf0QPcBSHpRYCRnoXahyaJa7mC9nizxu4qgrazrFUN-n36Bg0r_hGqLqAo_5QmkRfnGSP3Ztg6omgPLWQN78BSTwlAWy7n0h1eS_42RhvM74b0HxfSw",
+    category: "toys",
+    stock: 50
+  },
+  {
+    _id:"3",
+    name: "Cozy Dog Bed",
+    price: 34.99,
+    imageLink: "https://m.media-amazon.com/images/I/41EBD+aVPqL._SY300_SX300_.jpg",
+    category: "beds",
+    stock: 30
+  },
+  {
+    _id:"4",
+    name: "Tasty Fish Treats",
+    price: 8.99,
+    imageLink: "https://images.ctfassets.net/yadj1kx9rmg0/wtrHxeu3zEoEce2MokCSi/cf6f68efdcf625fdc060607df0f3baef/quwowooybuqbl6ntboz3.jpg",
+    category: "food",
+    stock: 75
+  },
+  {
+    _id:"5",
+    name: "Bird Perch Stand",
     price: 19.99,
-    weight: 1.5,
-    imageLink: imageLink
+    imageLink: "https://images.ctfassets.net/yadj1kx9rmg0/wtrHxeu3zEoEce2MokCSi/cf6f68efdcf625fdc060607df0f3baef/quwowooybuqbl6ntboz3.jpg",
+    category: "accessories",
+    stock: 40
   },
   {
-    name: "Product 2",
-    price: 29.99,
-    weight: 2.0,
-    imageLink: imageLink
+    _id:"6",
+    name: "Luxury Cat Collar",
+    price: 15.99,
+    imageLink: "https://images.ctfassets.net/yadj1kx9rmg0/wtrHxeu3zEoEce2MokCSi/cf6f68efdcf625fdc060607df0f3baef/quwowooybuqbl6ntboz3.jpg",
+    category: "accessories",
+    stock: 20
   },
   {
-    name: "Product 3",
-    price: 14.99,
-    weight: 1.2,
-    imageLink: imageLink
+    _id:"7",
+    name: "Soothing Dog Shampoo",
+    price: 14.79,
+    imageLink: "https://images.ctfassets.net/yadj1kx9rmg0/wtrHxeu3zEoEce2MokCSi/cf6f68efdcf625fdc060607df0f3baef/quwowooybuqbl6ntboz3.jpg",
+    category: "skincare",
+    stock: 60
   },
   {
-    name: "Product 4",
-    price: 34.99,
-    weight: 2.2,
-    imageLink: imageLink
-  },
-  {
-    name: "Product 5",
-    price: 24.99,
-    weight: 1.8,
-    imageLink: imageLink
-  },
-  {
-    name: "Product 6",
-    price: 39.99,
-    weight: 2.5,
-    imageLink: imageLink
-  },
-  {
-    name: "Product 7",
+    _id:"8",
+    name: "Small Animal Cage",
     price: 49.99,
-    weight: 3.0,
-    imageLink: imageLink
+    imageLink: "https://images.ctfassets.net/yadj1kx9rmg0/wtrHxeu3zEoEce2MokCSi/cf6f68efdcf625fdc060607df0f3baef/quwowooybuqbl6ntboz3.jpg",
+    category: "cages",
+    stock: 15
   },
   {
-    name: "Product 8",
-    price: 22.99,
-    weight: 1.7,
-    imageLink: imageLink
+    _id:"9",
+    name: "Natural Catnip",
+    price: 6.99,
+    imageLink: "https://images.ctfassets.net/yadj1kx9rmg0/wtrHxeu3zEoEce2MokCSi/cf6f68efdcf625fdc060607df0f3baef/quwowooybuqbl6ntboz3.jpg",
+    category: "toys",
+    stock: 90
   },
   {
-    name: "Product 9",
-    price: 27.99,
-    weight: 1.8,
-    imageLink: imageLink
+    _id:"10",
+    name: "Grooming Brush for Dogs",
+    price: 11.99,
+    imageLink: "https://images.ctfassets.net/yadj1kx9rmg0/wtrHxeu3zEoEce2MokCSi/cf6f68efdcf625fdc060607df0f3baef/quwowooybuqbl6ntboz3.jpg",
+    category: "grooming",
+    stock: 35
   },
   {
-    name: "Product 10",
-    price: 17.99,
-    weight: 1.1,
-    imageLink: imageLink
-  },
-  {
-    name: "Product 11",
-    price: 42.99,
-    weight: 2.4,
-    imageLink: imageLink
-  },
-  {
-    name: "Product 12",
-    price: 32.99,
-    weight: 2.3,
-    imageLink: imageLink
-  },
-  {
-    name: "Product 13",
-    price: 28.99,
-    weight: 2.3,
-    imageLink: imageLink
-  },
-  {
-    name: "Product 14",
-    price: 37.99,
-    weight: 2.2,
-    imageLink: imageLink
-  },
-  {
-    name: "Product 15",
-    price: 16.99,
-    weight: 1.6,
-    imageLink: imageLink
-  },
-  {
-    name: "Product 16",
-    price: 31.99,
-    weight: 2.1,
-    imageLink: imageLink
-  },
-  {
-    name: "Product 17",
-    price: 21.99,
-    weight: 1.6,
-    imageLink: imageLink
-  },
-  {
-    name: "Product 18",
-    price: 18.99,
-    weight: 1.4,
-    imageLink: imageLink
-  },
-  {
-    name: "Product 19",
-    price: 44.99,
-    weight: 2.7,
-    imageLink: imageLink
-  },
-  {
-    name: "Product 20",
-    price: 26.99,
-    weight: 1.6,
-    imageLink: imageLink
-  },
-  {
-    name: "Product 21",
+    _id:"11",
+    name: "Reptile Heat Lamp",
     price: 29.99,
-    weight: 2.0,
-    imageLink: imageLink
+    imageLink: "https://images.ctfassets.net/yadj1kx9rmg0/wtrHxeu3zEoEce2MokCSi/cf6f68efdcf625fdc060607df0f3baef/quwowooybuqbl6ntboz3.jpg",
+    category: "heating",
+    stock: 25
   },
   {
-    name: "Product 22",
-    price: 14.99,
-    weight: 1.2,
-    imageLink: imageLink
+    _id:"12",
+    name: "Organic Puppy Food",
+    price: 29.99,
+    imageLink: "https://images.ctfassets.net/yadj1kx9rmg0/wtrHxeu3zEoEce2MokCSi/cf6f68efdcf625fdc060607df0f3baef/quwowooybuqbl6ntboz3.jpg",
+    category: "food",
+    stock: 80
   },
   {
-    name: "Product 23",
-    price: 34.99,
-    weight: 2.2,
-    imageLink: imageLink
+    _id:"13",
+    name: "Feathered Bird Toy Set",
+    price: 8.99,
+    imageLink: "https://images.ctfassets.net/yadj1kx9rmg0/wtrHxeu3zEoEce2MokCSi/cf6f68efdcf625fdc060607df0f3baef/quwowooybuqbl6ntboz3.jpg",
+    category: "toys",
+    stock: 60
   },
   {
-    name: "Product 24",
-    price: 24.99,
-    weight: 1.8,
-    imageLink: imageLink
-  },
-  {
-    name: "Product 25",
-    price: 39.99,
-    weight: 2.5,
-    imageLink: imageLink
-  }
+    _id:"14",
+    name: "Memory Foam Dog Mattress",
+    price: 49.99,
+    imageLink: "https://images.ctfassets.net/yadj1kx9rmg0/wtrHxeu3zEoEce2MokCSi/cf6f68efdcf625fdc060607df0f3baef/quwowooybuqbl6ntboz3.jpg",
+    category:"beds",
+    stock:10
+  }]
 
-];
 
 export default products

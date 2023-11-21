@@ -46,7 +46,6 @@ module.exports = async (error, req, res, next) => {
       )
     );
 
-    //  console.log(JSON.stringify(error.errors.mobile.message));
   }
   console.log(error.name);
   res.json(new CustomResponse(false, null,error,error.message));

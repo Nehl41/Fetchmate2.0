@@ -21,7 +21,6 @@ const SignUp = () => {
   });
   const navigate = useNavigate();
 
-  console.log(formState);
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -30,8 +29,18 @@ const SignUp = () => {
         "/auth/signup",
         formState
       );
-      console.log(response.data);
       if(response.data.status==false) throw new Error(response.data.message)
+      navigate("/login")
+      toast.success("Sign Up Successful", {
+        position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
       // if(response.data.message=="Please Accept The Terms And Conditions") 
       // if(response.data.message=="Validation Error Occured!") throw new Error(response.data.error[0])
       // if(response.data.error.code==11000) throw new Error(response.data.message)

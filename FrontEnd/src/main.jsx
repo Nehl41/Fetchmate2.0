@@ -15,6 +15,7 @@ import Error404 from "./pages/Error404/Error404.jsx";
 import Shop from "./pages/Shop/Shop.jsx";
 import Login from "./components/Login.jsx";
 import SignUp from "./components/SignUp.jsx";
+import Cart from './pages/Cart/Cart.jsx'
 
 import { ToastContainer } from "react-toastify";
 
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <Error404 />,
     children: [
+      {path:"/cart",element:<Cart/>},
       { path: "", element: <Home /> },
       { path: "/pet-sitter", element: <PetSitter /> },
       { path: "/services", element: <Services /> },

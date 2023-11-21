@@ -27,7 +27,7 @@ const serviceSchema=new Schema({
     },
     serviceType:{
         type:String,
-        enum:["daycare","walking","overnight-stay","watching","training","socialisation"],
+        enum:["daycare","dogwalking","overnight","birdwatching","training","socialisation"],
         required:[true,"Request Must Have Service Type!"]
     },
     status:{

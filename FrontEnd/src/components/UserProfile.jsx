@@ -6,7 +6,7 @@ import { CiMedicalCross } from "react-icons/ci";
 
 import { useEffect, useState } from "react";
 import PetProfileCard from "./PetProfileCard";
-import AddPetSitterModal from "./AddPetSitterModal";
+import AddPetModal from "./AddPetModal";
 
 const Profile = () => {
   const userData = useUserStore((state) => state.userData);
@@ -14,8 +14,8 @@ const Profile = () => {
   const [pets, setPets] = useState([]);
   const [changeProfile, setChangeProfile] = useState();
   const token = useUserStore((state) => state.jwtToken);
-  const setUserData=useUserStore((state)=>state.setUserData)
-  const [isModalOpen,setIsModalOpen]=useState(false)
+  const setUserData = useUserStore((state) => state.setUserData);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     axios({
@@ -33,23 +33,25 @@ const Profile = () => {
       });
   }, []);
 
-  const submitProfile=(e)=>{
-    const file=e.target.files[0]
-    const formData=new FormData()
-    formData.append("profile",file)
+  const submitProfile = (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("profile", file);
     axios({
-        url:"/auth/add-profile",
-        method:"POST",
-        data:formData,
-        headers: {
-            Authorization: `Bearer ${token}`,
-          }
-    }).then((res)=>{
-        setUserData(res.data)
-    }).catch((err)=>{
-        console.log(err);
+      url: "/auth/add-profile",
+      method: "POST",
+      data: formData,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     })
-  }
+      .then((res) => {
+        setUserData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <>
@@ -71,13 +73,18 @@ const Profile = () => {
           <div className="leftsection self-end flex">
             {changeProfile ? (
               <div className="inline-flex w-fit items-center">
-                <label htmlFor="profileUpload w-fit">Upload Profile Image</label>
+                <label htmlFor="profileUpload w-fit">
+                  Upload Profile Image
+                </label>
                 <input onChange={submitProfile} type="file" />
               </div>
             ) : (
               ""
             )}
-            <button onClick={()=>setChangeProfile(!changeProfile)} class="text-white bg-cyan-400 hover:bg-cyan-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <button
+              onClick={() => setChangeProfile(!changeProfile)}
+              class="text-white bg-cyan-400 hover:bg-cyan-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
               <FaEdit size={18} />
             </button>
           </div>
@@ -290,8 +297,15 @@ const Profile = () => {
             ))}
             {/* {pets.map(({name,gender,breed,imageUrl})=>(<ProductCard image={imageUrl} name={name} price={gender} weight={breed}/>))} */}
 
-            <CiMedicalCross onClick={()=>setIsModalOpen(true)} size={100} title="Add A Pet" />
-            <AddPetSitterModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+            <CiMedicalCross
+              onClick={() => setIsModalOpen(true)}
+              size={100}
+              title="Add A Pet"
+            />
+            <AddPetModal
+              isModalOpen={isModalOpen}
+              setIsModalOpen={setIsModalOpen}
+            />
           </div>
         </div>
       </div>

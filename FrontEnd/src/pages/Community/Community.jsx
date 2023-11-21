@@ -63,7 +63,7 @@ const Community = () => {
           style={{ height: "10%" }}
           className="thumb flex items-center justify-center gap-4"
         >
-          <img className="rounded-full w-16" src={userData.profileUrl} alt="" />
+          <img className="rounded-full h-16 w-16" src={userData.profileUrl} alt="" />
           <input
             style={{ borderRadius: "4%/50%", cursor: "pointer" }}
             className="w-3/4 h-10 px-4 rounded-lg border-2"

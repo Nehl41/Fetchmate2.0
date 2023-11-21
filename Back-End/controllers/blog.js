@@ -16,13 +16,13 @@ exports.addBlog = asyncWrapper(async (req, res, next) => {
     title,
     author: user,
   });
-  res.json(blog);
+  res.json({status:true,blog});
 });
 
 exports.getAllBlogs = asyncWrapper(async (req, res, next) => {
-  const blogs = await Blog.find();
+  const blogs = await Blog.find().populate('author');
   const shuffled = shuffle(blogs);
-  res.json(shuffled);
+  res.json({status:true,blogs:shuffled});
 });
 
 exports.getMyBlogs = asyncWrapper(async (req, res, next) => {

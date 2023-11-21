@@ -41,7 +41,7 @@ const LandingSlider = () => {
     <div className="flex items-center justify-around">
     <AiOutlineLeft style={{color:"gray"}} className='left-caros text-2xl' onClick={carouselPrev}/>
    <div id='carousel-container' className='flex carousel-container scroll-smooth w-full overflow-x-hidden'>
-    {products.map(({name,price,weight,imageLink})=>(<ProductCard name={name} price={price} weight={weight} image={ProductImage}/>))}
+    {products.map(({name,price,weight,imageLink})=>(<ProductCard name={name} price={price} weight={weight} image={imageLink}/>))}
    </div>
 <AiOutlineRight style={{color:"gray"}} className='right-caros text-5xl' onClick={carouselNext}/>
     </div>
