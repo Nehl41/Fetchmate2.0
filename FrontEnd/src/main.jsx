@@ -21,11 +21,12 @@ import { ToastContainer } from "react-toastify";
 
 import Profile from "./components/UserProfile.jsx";
 import Protected from "./components/Protected.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <Error404 />,
+    errorElement: <ErrorPage />,
     children: [
       {path:"/cart",element:<Cart/>},
       { path: "", element: <Home /> },
