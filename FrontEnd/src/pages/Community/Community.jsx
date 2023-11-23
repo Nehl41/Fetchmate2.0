@@ -7,6 +7,7 @@ import UploadBlogModal from "../../components/community/UploadBlogModal";
 
 import useUserStore from "../../Store/userStore";
 import axios from "../../utils/axiosConfig";
+import { Link } from "react-router-dom";
 
 const Community = () => {
   const [blogAddModal, setBlogAddModal] = useState(false);
@@ -37,12 +38,13 @@ const Community = () => {
             alt=""
           />{" "}
           <div className="text-center font-bold pt-3">Nehal Patidar</div>
+          <Link to={"/services"}>
           <button
-            style={{ padding: "2%" }}
-            className="border-3 text-cyan-500 border-cyan-500"
+            className="border-3 p-2 text-cyan-500 border-cyan-500 rounded-xl"
           >
-            Book Service
+            Book Pet Service
           </button>
+          </Link>
           <div
             style={{ height: "1%", borderWidth: "1px" }}
             className="w-full mt-4 bg-gray-700 border-gray-700"
@@ -77,7 +79,7 @@ const Community = () => {
             setIsModalOpen={setBlogAddModal}
           />
         </div>
-        <div className="mt-6 flex flex-col gap-4 mx-4">
+        <div className="mt-12 flex flex-col gap-4 mx-4">
          {blogs.map(({author,title,content})=>{
           return <BlogCard image={author.profileUrl} username={author.name} content={content} title={title}   />
          })}

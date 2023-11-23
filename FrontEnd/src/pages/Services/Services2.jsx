@@ -1,8 +1,14 @@
 import React from 'react'
 import TrackerAD from '../../assets/trackPet.png'
 import TrackerBullets from '../../assets/trackBullets.png'
+import { toast } from 'react-toastify'
 
 const Services2 = () => {
+
+  const featureUnderDevelopmentToast=()=>{
+    toast.error("Feature Under Development!")
+  }
+
   return (
     <div className='w-screen px-10 pb-10 '>
         <div className='text-center text-3xl font-medium text-[#2EC4B6]'>Track Your Pet Here</div>
@@ -17,8 +23,8 @@ const Services2 = () => {
           <li ><div className='inline mr-6'><img className='inline' src={TrackerBullets} alt="" /></div>Activate Real time tracking via the app for pet monitoring</li>
         </ul>
         <div className='flex gap-24'>
-          <div><button className='bg-[#2EC4B6] px-6 py-2 rounded-lg font-medium'>Start Tracking</button></div>
-          <div><button className='border-2 border-[#2EC4B6] text-[#2EC4B6] px-6 py-2 rounded-lg font-medium'>Order Tracker</button></div>
+          <div><button onClick={featureUnderDevelopmentToast} className='bg-[#2EC4B6] px-6 py-2 rounded-lg font-medium'>Start Tracking</button></div>
+          <div><button onClick={featureUnderDevelopmentToast} className='border-2 border-[#2EC4B6] text-[#2EC4B6] px-6 py-2 rounded-lg font-medium'>Order Tracker</button></div>
         </div>
       </div>
     </div>

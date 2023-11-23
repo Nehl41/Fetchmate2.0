@@ -31,9 +31,11 @@ const PetSitterLoggedIn = () => {
       <div className="text-center text-[#FF9F1C] font-bold text-2xl pt-10 pb-12">
         Your Pet Sitting Requests!
       </div>
+      {!requests.length?<div>No Pet Sitting Request Currently!</div>:""}
       <div className="flex flex-col items-center gap-y-14 w-full">
         <div className="flex gap-x-16">
-          {requests.map(({ _id,status,petDetails, petParent,serviceType }) => (
+          {requests.map(({ _id,status,petDetails, petParent,serviceType,pickUpTime
+ }) => (
             <>
             <PetSitterCard
               email={petParent.email}
@@ -45,6 +47,7 @@ const PetSitterLoggedIn = () => {
               setPetModal={setPetModal}
               reqId={_id}
               initialStatus={status}
+              pickUpTime={pickUpTime}
             />
             <PetDetailsModal isModalOpen={petModal} setIsModalOpen={setPetModal} petDetails={petDetails}/></>
           ))}

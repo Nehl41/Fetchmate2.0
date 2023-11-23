@@ -62,7 +62,7 @@ const PetSitter = () => {
             difference in a pet's life
           </div>
           <div className="text-center">
-            <button onClick={handleBecomePetSitter} className="bg-[#CBF3F0] text-xl font-medium p-4 rounded-lg">
+            <button onClick={handleBecomePetSitter} className="bg-[#CBF3F0] hover:bg-cyan-200 text-xl font-medium p-4 rounded-lg">
               Become Pet Sitter
             </button>
           </div>

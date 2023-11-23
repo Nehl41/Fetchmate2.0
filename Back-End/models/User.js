@@ -15,6 +15,7 @@ const userSchema = new Schema({
   DOB: {
     type: Date,
     required: true,
+    max:[()=>Date.now(),"Invalid Birth Date!"]
   },
   mobile: {
     type: String,

@@ -7,14 +7,14 @@ const BlogCard = ({image,username,content,title}) => {
   const [shareState,setShareState]=useState(0)
   return (
     <div className="bg-white community-component-shadow flex flex-col gap-6 py-8 px-6">
-      <div style={{ height: "10%" }} className="thumb flex gap-8 items-center">
+      <div className="thumb flex gap-6 items-center">
         <img className="rounded-full w-14 h-14" src={image} alt="" />
         <div>
           <div className="font-bold text-base">{username}</div>
           <div className="text-base text-gray-500">{title}</div>
         </div>
       </div>
-      <div className="">
+      <div className="leading-relaxed">
         {content}
       </div>
       <div className="flex gap-6">

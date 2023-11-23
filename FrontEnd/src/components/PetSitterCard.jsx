@@ -1,6 +1,7 @@
 import React from "react";
 import Nehu from "../assets/nehu.png";
 import { AiFillStar } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const PetSitterCard = () => {
   return (
@@ -26,7 +27,7 @@ const PetSitterCard = () => {
           <div className="font-black text-left justify-self-start">25 pets</div>
         </div>
         <div className="col-span-2">
-          <button className="border-3 p-2 font-black rounded-lg border-cyan-400 text-cyan-400">Book Service</button>
+        <Link className="" to={"/services"}> <button className="border-3 active:scale-90 border-b-10 active:bg-cyan-400 p-2 active:text-black rounded-lg border-cyan-400 text-cyan-400">Book Pet Service</button></Link>
         </div>
       </div>
     </div>

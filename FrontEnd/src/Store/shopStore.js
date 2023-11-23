@@ -39,6 +39,13 @@ const store = (set, get) => ({
 
     set((state) => ({ categoryProducts: filteredProducts }));
   },
+
+  budgetFilter:(budget)=>{
+    const prods=get().categoryProducts;
+    const filteredProducts=prods.filter(({price})=>price<=budget)
+    set((state) => ({ categoryProducts: filteredProducts }));
+  }
+
 });
 
 const useStore = create(store);

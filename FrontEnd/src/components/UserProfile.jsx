@@ -82,9 +82,11 @@ const Profile = () => {
               ""
             )}
             <button
+            content="Change Profile Photo"
               onClick={() => setChangeProfile(!changeProfile)}
               class="text-white bg-cyan-400 hover:bg-cyan-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
+              Change Profile
               <FaEdit size={18} />
             </button>
           </div>
@@ -198,8 +200,8 @@ const Profile = () => {
               value={userData.altMobile}
               id="altNumber"
               className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="name@company.com"
-              required=""
+              placeholder="N/A"
+              
             />
           </span>
 

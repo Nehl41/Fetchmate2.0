@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
@@ -43,6 +44,16 @@ const store = (set, get) => ({
       tempCart.push({ ...attributes, qty: 1, subTotal: 1 * attributes.price });
     }
     set((state) => ({ cart: tempCart, total: get().total }));
+    toast.info(`${attributes.name} Added To Cart`, {
+      position: "top-center",
+      autoClose: 2000,
+      theme: "colored",
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   },
 });
 
