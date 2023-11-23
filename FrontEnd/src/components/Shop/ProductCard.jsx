@@ -1,8 +1,12 @@
 import React from "react";
 import useCartStore from "../../Store/cartStore";
+import useUserStore from "../../Store/userStore";
+import { toast } from "react-toastify";
 
 const ProductCard = ({ image, title, price, keyProp }) => {
   const addToCart = useCartStore((state) => state.addToCart);
+
+  const isLoggedIn=useUserStore((state)=>state.isLoggedIn)
 
   const prod = {
     imageLink: image,
@@ -28,7 +32,12 @@ const ProductCard = ({ image, title, price, keyProp }) => {
       <h3 className="text-center text-yellow-400">$ {price}</h3>
       <div className="pb-6 flex justify-center">
         <button
-          onClick={() => addToCart(prod, prod._id)}
+          onClick={() =>{
+            if(!isLoggedIn) toast.error("Log In To Perform This Action",{position:"top-center"})
+            else addToCart(prod, prod._id)
+          } 
+          
+          }
           class="font-roboto w-3/5 p-4 bg-transparent hover:bg-yellow-500 text-black-700 font-semibold hover:text-white border border-yellow-500 hover:border-transparent"
         >
           Add To Cart

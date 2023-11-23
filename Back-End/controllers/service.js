@@ -43,3 +43,10 @@ exports.respondToRequest = asyncWrapper(async (req, res, next) => {
   );
   res.json(request);
 });
+
+exports.deleteRequest=asyncWrapper(async (req,res,next)=>{
+    const {reqId}=req.params
+    const result=await Service.findByIdAndDelete(reqId,{new:true})
+    console.log(result);
+    res.json({status:true,message:"Request Deleted Successfully!"})
+})

@@ -4,12 +4,12 @@ import React from "react";
 
 const ReviewCard = ({image, parentImage,sitterName,serviceName,review,petParent}) => {
   return (
-    <div className="review-card flex w-2/5 flex-shrink-0 ">
+    <div className="review-card items-center flex w-2/5 flex-shrink-0 ">
       <img
         style={{ borderRadius: "50%/20%" }}
         src={image}
         alt="pet sitter's photo"
-        className="rounded-ss-3xl w-56"
+        className="rounded-ss-3xl w-56 h-80"
       />
       <div className="flex flex-col p-10 h-96 justify-around ">
         <div className="text-xl font-bold">{sitterName}</div>

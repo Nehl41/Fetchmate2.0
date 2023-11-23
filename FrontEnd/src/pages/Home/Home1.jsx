@@ -6,38 +6,42 @@ import LandingImg2 from "../../assets/landingImg2.png";
 import RabbitThumb from "../../assets/rabbit.png";
 import BlackDogThumb from "../../assets/blackDog.png";
 
+import gsap from "gsap";
+import { Power3 } from "gsap";
+import { Link } from "react-router-dom";
+
 const Home1 = () => {
-  const [thumb,setThumb]=useState({height:0,width:0})
+  const [thumb, setThumb] = useState({ height: 0, width: 0 });
 
   useEffect(() => {
     const smalThumb = document.getElementById("circularThumb");
-    setThumb({height:smalThumb.clientHeight,width:smalThumb.clientWidth})
+    setThumb({ height: smalThumb.clientHeight, width: smalThumb.clientWidth });
   }, []);
 
   return (
     <div className="home-upper grid gap-10 grid-cols-1 grid-rows-2 sm:grid-rows-1 sm:grid sm:grid-cols-2 sm:px-24 px-10 ">
       <div className="flex flex-col gap-6 justify-evenly">
-        <div className="sm:text-4xl text-2xl font-medium">
-          We Provide Something Amazing
-          <br />
-          of two lines
+        <div className="ovalRef sm:text-4xl text-2xl font-medium">
+          Shop, connect, and care. Elevate your pet's world with us.
         </div>
         <div className="text-xl pr-3.5">
-          Some Captive text here for the engagement purpose lets see what can
-          fit in here will ask my team mates about it
+          Discover joy in simplicity. Shop premium pet products and effortlessly
+          connect with trusted local pet sitters, ensuring your pet's happiness
+          is always a priority.
         </div>
         <div className="button-wrapper">
+          <Link to={"/services"}>
           <button
             type="button"
             className="bg-[#FF9F1C] hover:bg-yellow-500 font-medium rounded-lg text-xl px-4 py-2 "
           >
             Find Sitter
           </button>
+          </Link>
         </div>
         <div className="flex items-center gap-10">
-          <div>
+          <div className="ovalRef">
             <div id="circularThumb" className="inline relative">
-              
               <img
                 className="inline side-capsule-shadow rounded-full"
                 style={{
@@ -48,7 +52,7 @@ const Home1 = () => {
                 alt=""
               />
             </div>
-            <div className="inline  relative ">
+            <div className="inline relative ">
               <img
                 style={{
                   border: "5px solid white",
@@ -59,12 +63,14 @@ const Home1 = () => {
                 alt=""
               />
             </div>
-            <div style={{height:"60%",width:"60%"}} className="text-3xl relative rounded-full bg-[#CBF3F0] inline">
-              <AiOutlinePlus className="inline relative font-bold rounded-full" />
+            
+            <div className="inline bg-yellow-300 p-2 py-4 rounded-full ">
+            <AiOutlinePlus size={35} className="inline  rounded-full " />
             </div>
+           
           </div>
           <div className="">
-            We are a growing <br /> community  of 500+
+            We are a growing <br /> community of 500+
           </div>
         </div>
       </div>
@@ -73,7 +79,12 @@ const Home1 = () => {
           style={{ width: "fit-content", height: "fit-content" }}
           className="capsule-image-wrapper1 side-capsule-shadow flex items-center overflow-hidden"
         >
-          <img src={LandingImg1} alt="" className="" title="a happy pet parent" />
+          <img
+            src={LandingImg1}
+            alt=""
+            className=""
+            title="a happy pet parent"
+          />
         </div>
         <div
           style={{ width: "fit-content", height: "fit-content" }}

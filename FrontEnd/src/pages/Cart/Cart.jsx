@@ -1,12 +1,14 @@
 // Core Modules
 import { useEffect, useState } from "react";
 
-
 // External Dependencies
 import { GrClose } from "react-icons/gr";
 
 // User-Build Modules
 import useCartStore from "../../Store/cartStore";
+
+import EmptyCartImage from '../../assets/empty.png'
+import { toast } from "react-toastify";
 
 
 
@@ -31,7 +33,7 @@ const Cart = () => {
 }
 
  if(total==0) return(
-  <div className="h-screen bg-white flex items-center justify-center">
+  <div className="empty-cart h-screen text-4xl font-black  text-cyan-300 flex flex-col items-center pt-20">
     {"Oops Shopping Cart Is Empty!"}
   </div>
  )
@@ -111,9 +113,13 @@ const Cart = () => {
             <div className="my-3">
             
              <button
+             onClick={()=>{
+              toast.error("Payment Gateway Integration Incomplete!")
+             }}
                 className="border-2 border-yellow-400 hover:bg-yellow-400 hover:text-white transition p-2"
                 type="submit"
               >
+                
                 Proceed To Checkout
               </button>
             

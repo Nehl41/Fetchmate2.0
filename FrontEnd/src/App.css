@@ -55,17 +55,10 @@ html{
 }
 .left-caros:active,
 .right-caros:active {
-  animation: carouselButton 0.1s ease-in-out;
+  background-color: yellow;
 }
 
-@keyframes carouselButton {
-  from {
-    background-color: white;
-  }
-  to {
-    background-color: black;
-  }
-}
+
 
 .carousel-container > *:nth-child(n) {
   border-right: 0.1em solid #bfbaba;
@@ -170,4 +163,10 @@ html{
 background-image: url('./assets/FETCHMATE LOGO/Secondary Logo/IconNameOrange.svg');
 background-position: center;
 background-repeat: no-repeat;
+}
+
+.empty-cart{
+  background-image: url('./assets/empty.png');
+  background-position: center;
+  background-repeat: no-repeat;
 }

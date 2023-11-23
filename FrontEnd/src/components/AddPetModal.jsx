@@ -66,13 +66,16 @@ const AddPetSitterModal = ({isModalOpen,setIsModalOpen}) => {
           justifyContent: "space-around",
           paddingLeft: "2%",
           paddingRight: "3%",
+          zIndex:"100",
+          borderRadius:"5%",
+          border:"3px solid black"
         },
       }}
       isOpen={isModalOpen}
       onRequestClose={() => setIsModalOpen(false)}
       contentLabel='Register Your Pet'
     >
-      <div className="flex flex-col gap-6 h-full">
+      <div className="flex flex-col gap-6 h-full z-50">
        <div className='text-2xl font-bold text-center'>Add Your Pet</div>
        <input onChange={collectFormData} name='name' type="text" placeholder='Enter Pet Name' className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
        <select onChange={collectFormData} name='petType' className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">

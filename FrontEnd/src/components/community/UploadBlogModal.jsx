@@ -71,13 +71,13 @@ const UploadBlogModal = ({ isModalOpen, setIsModalOpen }) => {
           ref={titleRef}
           placeholder="Enter Post Title"
           type="text"
-          className="w-full border-2 border-black"
+          className="w-full border-2 border-black rounded-2xl"
         />
         <textarea
           placeholder="Enter Post Content"
           ref={contentRef}
           style={{ padding: "3%" }}
-          className="w-full block resize-none mx-auto border-2 border-gray-500"
+          className="w-full rounded-lg block resize-none mx-auto border-2 border-gray-500"
           name=""
           id=""
           cols="30"
@@ -85,7 +85,7 @@ const UploadBlogModal = ({ isModalOpen, setIsModalOpen }) => {
         ></textarea>
         <div>
           {" "}
-          <button onClick={submitBlog} className="border-3 p-2">
+          <button onClick={submitBlog} className="border-3 active:scale-90 active:border-white border-black p-2 rounded-xl bg-yellow-400">
             Submit
           </button>
         </div>

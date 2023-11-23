@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import useStore from '../../Store/shopStore'
+import useStore from "../../Store/shopStore";
 import useCartStore from "../../Store/cartStore";
 import Pagination from "./Pagination";
 
@@ -10,7 +10,6 @@ const ProductsList = () => {
   const fetchProducts = useStore((state) => state.fetchAllProducts);
   const sortProducts = useStore((state) => state.sortProducts);
   const priceFilter = useStore((state) => state.priceFilter);
- 
 
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(5);
@@ -18,11 +17,9 @@ const ProductsList = () => {
   useEffect(() => {
     fetchProducts();
     if (window.matchMedia("(max-width: 480px)").matches) {
-      setProductsPerPage(10)
+      setProductsPerPage(10);
     }
   }, [fetchProducts]);
-
-  
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -40,8 +37,10 @@ const ProductsList = () => {
   return (
     <main className="grid-cols-5 gap-3 col-span-3 p-3">
       <div className="top-part col-span-5 grid grid-cols-5">
-        <span className="col-span-3">Showing {indexFirst+1}-{lastIndex} of {products.length} results</span>
-        
+        <span className="col-span-3">
+          Showing {indexFirst + 1}-{lastIndex} of {products.length} results
+        </span>
+
         <select onChange={handleSort} className="p-2 border col-span-2">
           <option>Sort </option>
           <option value="A to Z">A to Z</option>
@@ -51,12 +50,12 @@ const ProductsList = () => {
         </select>
       </div>
       <div className="main-products-list pt-10 grid grid-cols-2 sm:grid-cols-3 gap-4">
-        {currentProducts.map(({ name,_id,price,imageLink }) => {
+        {currentProducts.map(({ name, _id, price, imageLink }) => {
           return (
             <ProductCard
               title={name}
               price={price}
-              handleClick={()=>addToCart(id)}
+              handleClick={() => addToCart(id)}
               image={imageLink}
               key={_id}
               keyProp={_id}

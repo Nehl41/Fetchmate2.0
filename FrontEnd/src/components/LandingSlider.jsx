@@ -6,6 +6,7 @@ import products from '../DummyData/products'
 import ProductImage from '../assets/dogFood.png'
 
 import {AiOutlineLeft,AiOutlineRight} from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 
 
 
@@ -38,12 +39,14 @@ const LandingSlider = () => {
   }
 
   return (
-    <div className="flex items-center justify-around">
-    <AiOutlineLeft style={{color:"gray"}} className='left-caros text-2xl' onClick={carouselPrev}/>
+    <div className="flex items-center justify-around cursor-pointer">
+    <AiOutlineLeft className='left-caros text-gray-400 hover:bg-black text-2xl' onClick={carouselPrev}/>
+   <Link className='w-full overflow-x-hidden' to={"/shop"}>
    <div id='carousel-container' className='flex carousel-container scroll-smooth w-full overflow-x-hidden'>
     {products.map(({name,price,weight,imageLink})=>(<ProductCard name={name} price={price} weight={weight} image={imageLink}/>))}
    </div>
-<AiOutlineRight style={{color:"gray"}} className='right-caros text-5xl' onClick={carouselNext}/>
+   </Link>
+<AiOutlineRight className='text-gray-400 cursor-pointer hover:bg-black right-caros text-5xl' onClick={carouselNext}/>
     </div>
     
    

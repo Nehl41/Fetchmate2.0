@@ -7,10 +7,10 @@ const PetDetailsModal = ({petDetails,isModalOpen,setIsModalOpen}) => {
     <ReactModal
       style={{
         content: {
-          height: "65%",
+          height: "90%",
           width: "30%",
           left: "35%",
-          top: "20%",
+          top: "10%",
           display: "flex",
           flexDirection:"column",
           justifyContent: "center",

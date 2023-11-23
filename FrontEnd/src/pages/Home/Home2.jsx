@@ -1,6 +1,7 @@
 import React from 'react'
 import CuteCat from '../../assets/cuteCat.png'
 import DogGroup from '../../assets/dogGroup.png'
+import { Link } from 'react-router-dom'
 
 const Home2 = () => {
   return (
@@ -13,11 +14,12 @@ const Home2 = () => {
       <div style={{borderRadius:"50%"}}  className='border-2 border-[#2EC4B6] flex gap-10 sm:p-16 py-16 w-2/5 flex-col justify-around items-center bg-[#CBF3F0]'>
     <div className=' text-2xl font-medium'>Why Choose Fetchmate ?</div>
     <div className=' flex items-center justify-center w-80  text-center'>we have trusted and verified pet sitters, who take care of your pets need when you asre away from them. we ensure to provide a comfortable and safe environment for your pets</div>
-     <div className=''><button
+     <Link to={"/signup"}>
+      <button
         type="button"
         className="focus:outline-none bg-[#2EC4B6]  font-medium rounded-lg text-xl px-4 py-2 dark:focus:ring-yellow-900">
         Get Started
-      </button></div> 
+      </button></Link> 
       </div>
     </div>
   )

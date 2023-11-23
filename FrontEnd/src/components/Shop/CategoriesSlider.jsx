@@ -1,4 +1,4 @@
-'use client'
+
 import React, { useState } from 'react'
 import categories from './categoriesData'
 import {GiSchoolBag} from 'react-icons/gi'
@@ -25,7 +25,7 @@ const CategoriesSlider = () => {
   }
 
   return (
-    <div style={{scrollbarWidth:"none"}} className='visible p-5 col-span-2 sm:invisible flex'>
+    <div style={{scrollbarWidth:"none"}} className='visible p-5 col-span-2 sm:hidden flex'>
       <h1>Select Category</h1>
       <div style={{scrollbarWidth:"none"}} className='overflow-y-scroll flex'>
       {categories.map(({category},index)=>
