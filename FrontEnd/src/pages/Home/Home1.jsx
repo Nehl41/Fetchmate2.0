@@ -6,12 +6,22 @@ import LandingImg2 from "../../assets/landingImg2.png";
 import RabbitThumb from "../../assets/rabbit.png";
 import BlackDogThumb from "../../assets/blackDog.png";
 
-import gsap from "gsap";
-import { Power3 } from "gsap";
 import { Link } from "react-router-dom";
 
 const Home1 = () => {
   const [thumb, setThumb] = useState({ height: 0, width: 0 });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const animationClasses=["fade-in","fade-in-left","fade-in-down"];
+      const rand=animationClasses[Math.floor(Math.random()*animationClasses.length)]
+      if (entry.isIntersecting) entry.target.classList.add(rand);
+      else entry.target.classList.remove(rand);
+    });
+  });
+
+  const appearers = document.querySelectorAll(".anim");
+  appearers.forEach((el) => observer.observe(el));
 
   useEffect(() => {
     const smalThumb = document.getElementById("circularThumb");
@@ -19,24 +29,24 @@ const Home1 = () => {
   }, []);
 
   return (
-    <div className="home-upper grid gap-10 grid-cols-1 grid-rows-2 sm:grid-rows-1 sm:grid sm:grid-cols-2 sm:px-24 px-10 ">
+    <div className=" home-upper grid gap-10 grid-cols-1 grid-rows-2 sm:grid-rows-1 sm:grid sm:grid-cols-2 sm:px-24 px-10 ">
       <div className="flex flex-col gap-6 justify-evenly">
-        <div className="ovalRef sm:text-4xl text-2xl font-medium">
+        <div className="anim ovalRef sm:text-4xl text-2xl font-medium">
           Shop, connect, and care. Elevate your pet's world with us.
         </div>
-        <div className="text-xl pr-3.5">
+        <div className="anim text-xl pr-3.5">
           Discover joy in simplicity. Shop premium pet products and effortlessly
           connect with trusted local pet sitters, ensuring your pet's happiness
           is always a priority.
         </div>
-        <div className="button-wrapper">
+        <div className="button-wrapper anim">
           <Link to={"/services"}>
-          <button
-            type="button"
-            className="bg-[#FF9F1C] hover:bg-yellow-500 font-medium rounded-lg text-xl px-4 py-2 "
-          >
-            Find Sitter
-          </button>
+            <button
+              type="button"
+              className="bg-[#FF9F1C] anim hover:bg-yellow-500 font-medium rounded-lg text-xl px-4 py-2 "
+            >
+              Find Sitter
+            </button>
           </Link>
         </div>
         <div className="flex items-center gap-10">
@@ -63,11 +73,10 @@ const Home1 = () => {
                 alt=""
               />
             </div>
-            
+
             <div className="inline bg-yellow-300 p-2 py-4 rounded-full ">
-            <AiOutlinePlus size={35} className="inline  rounded-full " />
+              <AiOutlinePlus size={35} className="inline  rounded-full " />
             </div>
-           
           </div>
           <div className="">
             We are a growing <br /> community of 500+

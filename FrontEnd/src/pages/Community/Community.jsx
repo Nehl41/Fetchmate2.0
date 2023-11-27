@@ -27,6 +27,16 @@ const Community = () => {
     });
   }, []);
 
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+      if(entry.isIntersecting) entry.target.classList.add('animate-appear')
+      else entry.target.classList.remove('animate-appear')
+    })
+  })
+
+  const appearers=document.querySelectorAll('.anim')
+  appearers.forEach((el)=>observer.observe(el))
+
   return (
     <div className="grid grid-cols-4 gap-2 mt-10 ">
       <div className="col-span-1 h-fit gap-4 px-6 py-6 flex flex-col items-center community-component-shadow">

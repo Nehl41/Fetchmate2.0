@@ -9,9 +9,23 @@ import Home4 from './Home4'
 import Home5 from './Home5'
 
 const Home = () => {
+
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+      if(entry.isIntersecting) entry.target.classList.add('animate-appear')
+      else entry.target.classList.remove('animate-appear')
+    })
+  })
+
+  const appearers=document.querySelectorAll('.anim')
+  appearers.forEach((el)=>observer.observe(el))
+
+
   return (
     // Home Container
 <div className=' home-wrapper flex flex-col sm:pt-20 sm:gap-28 gap-12'>
+
+
 
    {/* Home Part 1 */} 
    <Home1/>

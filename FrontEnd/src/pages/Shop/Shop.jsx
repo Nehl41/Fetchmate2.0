@@ -5,6 +5,18 @@ import ProductsList from "../../components/Shop/ProductsList";
 import useStore from "../../Store/shopStore";
 
 const Shop = () => {
+
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+      if(entry.isIntersecting) entry.target.classList.add('animate-appear')
+      else entry.target.classList.remove('animate-appear')
+    })
+  })
+
+  const appearers=document.querySelectorAll('.anim')
+  appearers.forEach((el)=>observer.observe(el))
+
+  
   const budgetRef = useRef(null);
 
   const budgetFilter = useStore((state) => state.budgetFilter);
@@ -53,7 +65,7 @@ const Shop = () => {
                 </label>
               </div>
             </div>
-            <div className="product-tags">
+            {/* <div className="product-tags">
               <h3 className="mb-4 gap-x-8 col-span-2 text-2xl font-anton tracking-wide text-left mt-16">
                 PRODUCT TAGS
               </h3>
@@ -69,7 +81,7 @@ const Shop = () => {
                   );
                 })}
               </div>
-            </div>
+            </div> */}
           </aside>
         </div>
       </div>

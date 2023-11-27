@@ -6,13 +6,24 @@ import { GrClose } from "react-icons/gr";
 
 // User-Build Modules
 import useCartStore from "../../Store/cartStore";
+import axios from '../../utils/axiosConfig'
 
 import EmptyCartImage from '../../assets/empty.png'
 import { toast } from "react-toastify";
 
 
 
+
 const Cart = () => {
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+      if(entry.isIntersecting) entry.target.classList.add('animate-appear')
+      else entry.target.classList.remove('animate-appear')
+    })
+  })
+
+  const appearers=document.querySelectorAll('.anim')
+  appearers.forEach((el)=>observer.observe(el))
 
   const cart = useCartStore((state) => state.cart);
   const calculateTotal=useCartStore((state)=>state.calculateTotal)
@@ -22,11 +33,16 @@ const Cart = () => {
   const [displayCart,setDisplayCart]=useState([])
   const [total,setTotal]=useState(0)
 
+ 
+
  useEffect(()=>{
   calculateTotal()
   setDisplayCart(cart)
   setTotal(totalAmount)
+  
  },[cart,totalAmount,calculateTotal])
+
+ 
 
  const handleRemoveItem=(attributes,id)=>{
   if(confirm("Do you Really Want To Remove This Item?")) removeFromCart(attributes,id)
@@ -37,6 +53,9 @@ const Cart = () => {
     {"Oops Shopping Cart Is Empty!"}
   </div>
  )
+
+
+
 
   return (
     <div>
@@ -113,8 +132,11 @@ const Cart = () => {
             <div className="my-3">
             
              <button
-             onClick={()=>{
-              toast.error("Payment Gateway Integration Incomplete!")
+             onClick={async()=>{
+              await axios({
+                url:"/"
+              })
+              // toast.error("Payment Gateway Integration Incomplete!")
              }}
                 className="border-2 border-yellow-400 hover:bg-yellow-400 hover:text-white transition p-2"
                 type="submit"

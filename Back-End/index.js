@@ -33,6 +33,32 @@ app.use('/service',protectRoute,serviceRouter)
 
 app.use('/blog',blogRouter)
 
+app.post("/razorpay", async (req, res) => {
+    const payment_capture = 1;
+    const amount = 499;
+    const currency = "INR";
+  
+    const options = {
+      amount: amount * 100,
+      currency,
+      receipt: shortid.generate(),
+      payment_capture,
+    };
+  
+    try {
+      const response = await razorpay.orders.create(options);
+      console.log(response);
+      res.json({
+        id: response.id,
+        currency: response.currency,
+        amount: response.amount,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  });
+  
+
 // Route Not Found Middleware
 app.use(asyncWrapper(async (req,res,next)=>{
     res.status(404).json({error:"Route Not Found"})
