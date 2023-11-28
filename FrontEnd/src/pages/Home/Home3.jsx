@@ -40,11 +40,11 @@ const Home3 = () => {
           <div className="col-span-1 pl-6 text-3xl font-bold text-[#ff9f1c]">
             2
           </div>
-          <div className="col-span-9  flex justify-evenly font-bold">
+          <div className="anim col-span-9  flex justify-evenly font-bold">
             Building a Trusted Network of Pet Enthusiasts
           </div>
           <div className="col-span-1 "></div>
-          <div className="break-words pl-2 col-span-9 row-span-1">
+          <div className="anim break-words pl-2 col-span-9 row-span-1">
             In our community, authenticity reigns. Join us, where trust and
             shared passion for pets create lasting connections.
           </div>

@@ -14,7 +14,15 @@ import Services2 from './Services2'
 
 const Services = () => {
 
-  
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+      if(entry.isIntersecting) entry.target.classList.add('animate-appear')
+      else entry.target.classList.remove('animate-appear')
+    })
+  })
+
+  const appearers=document.querySelectorAll('.anim')
+  appearers.forEach((el)=>observer.observe(el))
 
   const description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt neque officiis fugit adipisci quos nulla!"
   return (

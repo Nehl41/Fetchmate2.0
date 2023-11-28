@@ -10,6 +10,16 @@ import PetSitterLoggedIn from './PetSitterLoggedIn'
 
 const PetSitter = () => {
 
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+      if(entry.isIntersecting) entry.target.classList.add('animate-appear')
+      else entry.target.classList.remove('animate-appear')
+    })
+  })
+
+  const appearers=document.querySelectorAll('.anim')
+  appearers.forEach((el)=>observer.observe(el))
+
   const token=useUserStore((state)=>state.jwtToken)
   const isLoggedIn=useUserStore((state)=>state.isLoggedIn)
   const setUserData=useUserStore((state)=>state.setUserData)
